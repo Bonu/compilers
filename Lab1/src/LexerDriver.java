@@ -1,8 +1,14 @@
 
-import java.io.*;
-import java.util.*;
-import node.*;
-import lexer.*;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.PushbackReader;
+import java.util.StringTokenizer;
+
+import cplexer.lexer.Lexer;
+import cplexer.lexer.LexerException;
+import cplexer.node.EOF;
+import cplexer.node.TWhiteSpace;
+import cplexer.node.Token;
 
 public class LexerDriver          
 {
