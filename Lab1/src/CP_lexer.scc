@@ -7,14 +7,28 @@ Helpers
 
     all = [0..0xffff];
     space  = ' ';          
+    allorspace = all | space;
     lf  = 0x000a; // line feed
     cr  = 0x000d; // carriage return
     ff  = 0x000c; // form feed
     ht  = 0x0009; // tab
-
-    new_line = lf | cr | cr lf ;
-    not_cr_lf = [all - [cr + lf]];
-
+    new_line 	= lf | cr | cr lf ;
+    not_cr_lf 	= [all - [cr + lf]];
+	notstar		= [all - '*'] | new_line;
+	
+	digit = [ '0' .. '9' ];
+	nonzerodigit = ['1' .. '9'];
+	loweralphabets = [ 0x0041 .. 0x005a ];
+	upperalphabets = [ 0x0061 .. 0x007a ];
+	underscore = '_';	
+	letters	=	loweralphabets | upperalphabets;
+	letterorunderscore = letters | '_';
+	letterordigit = letters | digit;
+	semicolon	=';';
+	escape_sequence	=	'\b' | '\t' | '\n' | '\f' | '\r' | '\"' | '\' ''' | '\\';
+	string_character	=	[ not_cr_lf - [ '"' + '\' ] ] | escape_sequence;
+	
+	
 States
     normal;
     
@@ -24,37 +38,27 @@ Tokens
     // Example token:
     // Do not change the white_space token below (LexerDriver uses it).
     white_space          = (space | ht | ff | new_line)*;
-
-
+    
     // IMPORTANT INFORMATION:
-
     /* Only lower case letters and "_" are allowed in token names, e.g., 
-
        Xclass = 'class';  // illegal because of the capitalized "X"
     */
-
     // There is one other restriction in the naming of tokens.
-
     /* The 'class' token (reserved word) CANNOT be named "class" because 
      * SableCC will generate a method "getClass" that is already 
      * defined in Object and cannot be overriden, i.e., the following 
      * token definition (below) will cause the code generated 
      * by SableCC not to compile.  
-
        class = 'class';  // the generated TClass will not compile.  
-
        xclass = 'class';  // would be OK
        t_class = 'class';  // OK
        k_class = 'class';  // OK
-
      * Other Java reserved words can be used as token names.  For example:
-
        implements = 'implements';  // also OK
-
      */
 
     // Of course token definitions cannot be inside of comments :-).  
-
+    
 	
 // *****************       Comments       ********************************
 
@@ -68,6 +72,40 @@ Tokens
 
 
 // *****************       Reserved Words       ******************************
-
-
+	slcomment	='//' not_cr_lf* new_line ?;
+	bool		='bool';
+	break		='break'; 
+	char		='char'; 
+	kconst 		='const';
+	continue	='continue';
+	do			='do';
+	else		='else';
+	false		='false';
+	float		='float';
+	if			='if';
+	int			='int';
+	k_class		='class';
+	new			='new';
+	null		='null'; 
+	private		='private'; 
+	protected	='protected'; 
+	public		='public'; 
+	return		='return'; 
+	static		='static'; 
+	string		='string'; 
+	struct		='struct';
+	this		='this'; 
+	true		='true'; 
+	while		='while'; 
+	void		='void';
+	identifier	= letterorunderscore letterordigit* ;
+	left_brace	='{';
+	right_brace	='}';
+	star		='*';	
+	ksemicolon	=semicolon;
+	integer		='0' | nonzerodigit digit*;
+	string_literal	=	'"' string_character * '"';
+	
+Ignored Tokens
+	white_space ;	
 
