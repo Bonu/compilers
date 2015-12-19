@@ -75,7 +75,319 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTMlcomment(TMlcomment node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTSlcomment(TSlcomment node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTKsemicolon(TKsemicolon node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTIdentifier(TIdentifier node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTInteger(TInteger node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTStringLiteral(TStringLiteral node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTComma(TComma node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTDot(TDot node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTAssign(TAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLt(TLt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTGt(TGt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTComplement(TComplement node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBitComplement(TBitComplement node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTQuestion(TQuestion node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTColon(TColon node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTEq(TEq node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLteq(TLteq node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTGteq(TGteq node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTNeq(TNeq node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTAnd(TAnd node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTOr(TOr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTPlusPlus(TPlusPlus node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTMinusMinus(TMinusMinus node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTPlus(TPlus node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTMinus(TMinus node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTStar(TStar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTDiv(TDiv node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBitAnd(TBitAnd node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBitOr(TBitOr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBitXor(TBitXor node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTMod(TMod node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLeftFbrace(TLeftFbrace node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTRightFbrace(TRightFbrace node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTSemicolon(TSemicolon node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLeftSbrace(TLeftSbrace node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTRightSbrace(TRightSbrace node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLambda(TLambda node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLeftBrace(TLeftBrace node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTRightBrace(TRightBrace node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTShiftLeft(TShiftLeft node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTSignedShiftRight(TSignedShiftRight node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTUnsignedShiftRight(TUnsignedShiftRight node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTPlusAssign(TPlusAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTMinusAssign(TMinusAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTStarAssign(TStarAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTDivAssign(TDivAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBitAndAssign(TBitAndAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBitOrAssign(TBitOrAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBitXorAssign(TBitXorAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTModAssign(TModAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTShiftLeftAssign(TShiftLeftAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTSignedShiftRightAssign(TSignedShiftRightAssign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTUnsignedShiftRightAssign(TUnsignedShiftRightAssign node)
     {
         defaultCase(node);
     }
@@ -226,48 +538,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTVoid(TVoid node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTIdentifier(TIdentifier node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTLeftBrace(TLeftBrace node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTRightBrace(TRightBrace node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTStar(TStar node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTKsemicolon(TKsemicolon node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTInteger(TInteger node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTStringLiteral(TStringLiteral node)
     {
         defaultCase(node);
     }

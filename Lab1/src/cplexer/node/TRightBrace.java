@@ -9,12 +9,12 @@ public final class TRightBrace extends Token
 {
     public TRightBrace()
     {
-        super.setText("}");
+        super.setText(")");
     }
 
     public TRightBrace(int line, int pos)
     {
-        super.setText("}");
+        super.setText(")");
         setLine(line);
         setPos(pos);
     }

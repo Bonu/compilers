@@ -9,12 +9,12 @@ public final class TLeftBrace extends Token
 {
     public TLeftBrace()
     {
-        super.setText("{");
+        super.setText("(");
     }
 
     public TLeftBrace(int line, int pos)
     {
-        super.setText("{");
+        super.setText("(");
         setLine(line);
         setPos(pos);
     }
