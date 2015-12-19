@@ -12,11 +12,14 @@ public interface Analysis extends Switch
     void setOut(Node node, Object o);
 
     void caseTWhiteSpace(TWhiteSpace node);
-    void caseTMlcomment(TMlcomment node);
     void caseTSlcomment(TSlcomment node);
+    void caseTMlcomment(TMlcomment node);
+    void caseTDoccomment(TDoccomment node);
     void caseTKsemicolon(TKsemicolon node);
     void caseTIdentifier(TIdentifier node);
+    void caseTFloatLit(TFloatLit node);
     void caseTInteger(TInteger node);
+    void caseTCharacter(TCharacter node);
     void caseTStringLiteral(TStringLiteral node);
     void caseTComma(TComma node);
     void caseTDot(TDot node);
@@ -27,6 +30,7 @@ public interface Analysis extends Switch
     void caseTBitComplement(TBitComplement node);
     void caseTQuestion(TQuestion node);
     void caseTColon(TColon node);
+    void caseTHash(THash node);
     void caseTEq(TEq node);
     void caseTLteq(TLteq node);
     void caseTGteq(TGteq node);
@@ -48,9 +52,10 @@ public interface Analysis extends Switch
     void caseTSemicolon(TSemicolon node);
     void caseTLeftSbrace(TLeftSbrace node);
     void caseTRightSbrace(TRightSbrace node);
-    void caseTLambda(TLambda node);
+    void caseTArrow(TArrow node);
     void caseTLeftBrace(TLeftBrace node);
     void caseTRightBrace(TRightBrace node);
+    void caseTDquote(TDquote node);
     void caseTShiftLeft(TShiftLeft node);
     void caseTSignedShiftRight(TSignedShiftRight node);
     void caseTUnsignedShiftRight(TUnsignedShiftRight node);
