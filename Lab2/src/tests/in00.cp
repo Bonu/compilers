@@ -1,0 +1,4 @@
+/*
+  Test of namespace declarations.
+*/
+
