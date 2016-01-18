@@ -69,6 +69,18 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseStart(Start node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPlusExpr(APlusExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTWhiteSpace(TWhiteSpace node)
     {
         defaultCase(node);
@@ -459,7 +471,19 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTDouble(TDouble node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTElse(TElse node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTEnum(TEnum node)
     {
         defaultCase(node);
     }
@@ -490,6 +514,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTKClass(TKClass node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLong(TLong node)
     {
         defaultCase(node);
     }
@@ -531,6 +561,18 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTShort(TShort node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTSigned(TSigned node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTStatic(TStatic node)
     {
         defaultCase(node);
@@ -562,6 +604,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTWhile(TWhile node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTUnsigned(TUnsigned node)
     {
         defaultCase(node);
     }

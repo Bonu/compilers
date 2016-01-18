@@ -144,24 +144,30 @@ Tokens
 		kconst 		='const';
 		continue	='continue';
 		do			='do';
+		double		='double';
 		else		='else';
+		enum		='enum';
 		false		='false';
 		float		='float';
 		if			='if';
 		int			='int';
 		k_class		='class';
+		long		='long';
 		new			='new';
 		null		='null'; 
 		private		='private'; 
 		protected	='protected'; 
 		public		='public'; 
-		return		='return'; 
+		return		='return';
+		short		='short';
+		signed		='signed';
 		static		='static'; 
 		string		='string'; 
 		struct		='struct';
 		this		='this'; 
 		true		='true'; 
 		while		='while'; 
+		unsigned	='unsigned';
 		void		='void';	
 		
 	
@@ -170,3 +176,119 @@ Ignored Tokens
 		slcomment,
 		mlcomment;
 		
+
+Productions
+	program = class_decls;
+	
+	class_decls = {class_decls} class_decl 
+				| class_decl;
+			
+	class_decl = class_hdr left_fbrace  right_fbrace
+			| class_hdr left_fbrace member_decls right_fbrace;
+			
+	member_decls = member_decls member
+			| member;
+			
+	member = field
+			| method
+			| semicolon ;
+
+	field = type identifier semicolon
+			| type identifier assign expr semicolon
+			| type identifier left_sbrace int_lit right_sbrace semicolon;
+
+	type =	int
+			| char
+			| bool
+			| string
+			| float;
+			
+	method = method_hdr left_brace formals right_brace block
+			| method_hdr left_brace right_brace block;
+		
+	method_hdr= void identifier
+			| type identifier;
+			
+	formals = formal
+	| formals comma formal;
+	
+	formal = type identifier
+	| type identifier left_sbraceright_sbrace;
+	
+	block = left_fbrace stmts right_fbrace
+	| left_fbrace right_fbrace;
+	
+	stmts = stmts stmt
+	| stmt;
+	
+	stmt = simple_stmt
+	| if condition stmt else stmt;
+	
+	condition = left_brace expr right_brace;
+	
+	local_decl = type identifier semicolon
+			| type identifier assign expr semicolon
+			| type identifier left_sbrace int_lit right_sbrace semicolon ;
+			
+	simple_stmt = local_decl
+		| field_access assign expr semicolon
+		| method_call  semicolon
+		| return  semicolon
+		| return expr  semicolon
+		| block
+		| while condition block
+		| do stmts while condition semicolon
+		|  semicolon ;
+		
+	field_access=identifier
+		| identifier dot identifier
+		| array_ref ;
+		
+	array_ref = identifier left_sbrace expr right_sbrace
+		| identifier dot identifier left_sbrace expr right_sbrace ;
+		
+	method_call = identifier left_brace right_brace
+		| identifier left_brace args right_brace
+		| identifier dot identifier left_brace right_brace
+		| identifier dot identifier left_brace args right_brace;
+		
+	args = expr
+		| args comma expr;			
+		
+	expr = expr or e2
+		| expr and e2
+		| e2;
+			
+	e2 = e3 lt e3
+		| e3 gt e3
+		| e3 lteq e3
+		| e3 gteq e3
+		| e3 eq e3
+		| e3 neq e3
+		| e3 ;
+			
+	e3 = e3 plus e4
+		| e3 minus e4
+		| e4 ;
+			
+	e4 = e4 star e5
+		| e4 div e5
+		| e4 mod e5
+		| e5 ;
+			
+	e5 = complement e5
+		| add e5
+		| minus e5
+		| primary ;
+			
+	primary = field_access
+		| method_call
+		| int_lit
+		| char_lit
+		| str_lit
+		| float_lit
+		| true
+		| false
+		| left_brace expr right_brace;
+			
+			

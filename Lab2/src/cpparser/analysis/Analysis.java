@@ -11,6 +11,9 @@ public interface Analysis extends Switch
     Object getOut(Node node);
     void setOut(Node node, Object o);
 
+    void caseStart(Start node);
+    void caseAPlusExpr(APlusExpr node);
+
     void caseTWhiteSpace(TWhiteSpace node);
     void caseTSlcomment(TSlcomment node);
     void caseTMlcomment(TMlcomment node);
@@ -76,24 +79,30 @@ public interface Analysis extends Switch
     void caseTKconst(TKconst node);
     void caseTContinue(TContinue node);
     void caseTDo(TDo node);
+    void caseTDouble(TDouble node);
     void caseTElse(TElse node);
+    void caseTEnum(TEnum node);
     void caseTFalse(TFalse node);
     void caseTFloat(TFloat node);
     void caseTIf(TIf node);
     void caseTInt(TInt node);
     void caseTKClass(TKClass node);
+    void caseTLong(TLong node);
     void caseTNew(TNew node);
     void caseTNull(TNull node);
     void caseTPrivate(TPrivate node);
     void caseTProtected(TProtected node);
     void caseTPublic(TPublic node);
     void caseTReturn(TReturn node);
+    void caseTShort(TShort node);
+    void caseTSigned(TSigned node);
     void caseTStatic(TStatic node);
     void caseTString(TString node);
     void caseTStruct(TStruct node);
     void caseTThis(TThis node);
     void caseTTrue(TTrue node);
     void caseTWhile(TWhile node);
+    void caseTUnsigned(TUnsigned node);
     void caseTVoid(TVoid node);
     void caseEOF(EOF node);
 }
