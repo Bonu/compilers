@@ -8,4 +8,10 @@ ISSUE 2
 
 
 
+References:
+http://sablecc.sourceforge.net/thesis/thesis.html#PAGE45
+
+https://groups.google.com/forum/#!topic/comp.compilers/JUga-QcnmLI
+
+
 

@@ -176,119 +176,120 @@ Ignored Tokens
 		slcomment,
 		mlcomment;
 		
-
 Productions
 	program = class_decls;
 	
-	class_decls = {class_decls} class_decl 
-				| class_decl;
+	class_decls = {class_decls} class_decls class_decl 
+		| class_decl;
 			
-	class_decl = class_hdr left_fbrace  right_fbrace
-			| class_hdr left_fbrace member_decls right_fbrace;
-			
-	member_decls = member_decls member
-			| member;
-			
-	member = field
-			| method
-			| semicolon ;
+	class_decl = {class_hdr_left} class_hdr left_fbrace  right_fbrace
+		| {class_hdr_right} left_fbrace member_decls right_fbrace;
 
-	field = type identifier semicolon
-			| type identifier assign expr semicolon
-			| type identifier left_sbrace int_lit right_sbrace semicolon;
-
-	type =	int
-			| char
-			| bool
-			| string
-			| float;
+	class_hdt = k_class identifier;
 			
-	method = method_hdr left_brace formals right_brace block
-			| method_hdr left_brace right_brace block;
+	class_member_decls = {class_member_decls} class_member_decls [left]: class_member
+		| [right]: class_member ;
+			
+	class_member = {field} field
+		| {method} method
+		| {semicolon} semicolon ;
+
+	field = {type1}type [one]:identifier semicolon
+		| {type2}type [two]:identifier assign expr semicolon
+		| {type3}type [three]:identifier left_sbrace int_lit right_sbrace semicolon;
+
+	type =	{int} int
+		| {char} char
+		| {bool} bool
+		| {string} string
+		| {float} float;
+			
+	method_decl = {method_arguments} method_hdr left_brace formals right_brace block
+		| {method_no_arguments} method_hdr left_brace right_brace block;
 		
-	method_hdr= void identifier
-			| type identifier;
+	method_hdr= {void_identifier} void  identifier
+		| {type_identifier} type identifier;
 			
-	formals = formal
-	| formals comma formal;
+	formals = {formal} formal
+		| formals comma formal;
 	
-	formal = type identifier
-	| type identifier left_sbraceright_sbrace;
+	formal = {type_identifier} type identifier
+		| {type_identifier_constructor} type identifier left_sbrace right_sbrace;
 	
-	block = left_fbrace stmts right_fbrace
-	| left_fbrace right_fbrace;
+	block = {stmts_block} left_fbrace stmts right_fbrace
+		| {empty_block} left_fbrace right_fbrace;
 	
-	stmts = stmts stmt
-	| stmt;
+	stmts = {many_stmts} stmts stmt
+		| {single_stmt} stmt;
 	
-	stmt = simple_stmt
-	| if condition stmt else stmt;
+	stmt = {simple_stmt} simple_stmt
+		| {if_else_stmt} if condition [left]:stmt else [right]:stmt;
 	
 	condition = left_brace expr right_brace;
 	
-	local_decl = type identifier semicolon
-			| type identifier assign expr semicolon
-			| type identifier left_sbrace int_lit right_sbrace semicolon ;
+	local_decl = {identifier} type identifier semicolon
+		| {identifier_expr} type identifier assign expr semicolon
+		| {identifier_int_lit} type identifier left_sbrace int_lit right_sbrace semicolon ;
 			
-	simple_stmt = local_decl
-		| field_access assign expr semicolon
-		| method_call  semicolon
-		| return  semicolon
-		| return expr  semicolon
-		| block
-		| while condition block
-		| do stmts while condition semicolon
+	simple_stmt = {local_decl} local_decl
+		| {field_access_expr} field_access assign expr semicolon
+		| {method_call} method_call  semicolon
+		| {return} return  semicolon
+		| {return_expr} return expr  semicolon
+		| {block} block
+		| {while} while condition block
+		| {do_while} do stmts while condition semicolon
 		|  semicolon ;
 		
-	field_access=identifier
-		| identifier dot identifier
-		| array_ref ;
+	field_access= {fa_id} identifier
+		| {fa_id_dot_id} [left]:identifier dot [right]:identifier
+		| {array_ref} array_ref ;
 		
-	array_ref = identifier left_sbrace expr right_sbrace
-		| identifier dot identifier left_sbrace expr right_sbrace ;
+	array_ref = {array_ref_id} identifier left_sbrace expr right_sbrace
+		| {array_ref_iddotid}[left]: identifier dot [right]:identifier left_sbrace expr right_sbrace ;
 		
-	method_call = identifier left_brace right_brace
-		| identifier left_brace args right_brace
-		| identifier dot identifier left_brace right_brace
-		| identifier dot identifier left_brace args right_brace;
+	method_call = {method_call_id} identifier left_brace right_brace
+		| {method_call_id_args} identifier left_brace args right_brace
+		| {method_call_iddotid} [left]:identifier dot [right]:identifier left_brace right_brace
+		| {method_call_iddoid_args}  [left]:identifier dot [right]:identifier left_brace args right_brace;
 		
-	args = expr
-		| args comma expr;			
+	args = {args_expr} expr
+		| {args_comma_expr} args comma expr;			
 		
-	expr = expr or e2
-		| expr and e2
-		| e2;
+	expr = {expr_or} expr or e2
+		| {expr_and} expr and e2
+		| {expr_only} e2;
 			
-	e2 = e3 lt e3
-		| e3 gt e3
-		| e3 lteq e3
-		| e3 gteq e3
-		| e3 eq e3
-		| e3 neq e3
-		| e3 ;
+	e2 = {e3lte3} [left]: e3 lt [right]:e3
+		| {e3gte3} [left]: e3 gt [right]:e3
+		| {e3lteqe3} [left]: e3 lteq [right]:e3
+		| {e3gteqe3} [left]: e3 gteq [right]:e3
+		| {e3eqe3} [left]: e3 eq [right]:e3
+		| {e3neqe3} [left]: e3 neq [right]:e3
+		| {e3only} [left]: e3 ;
 			
-	e3 = e3 plus e4
-		| e3 minus e4
-		| e4 ;
+	e3 = {e3pluse4} e3 plus e4
+		| {e3minuse4} e3 minus e4
+		| {e4only} e4 ;
 			
-	e4 = e4 star e5
-		| e4 div e5
-		| e4 mod e5
-		| e5 ;
+	e4 = {e4mule5} e4 star e5
+		| {e4dive5} e4 div e5
+		| {e4mode5} e4 mod e5
+		| {e5only} e5 ;
 			
-	e5 = complement e5
-		| add e5
-		| minus e5
-		| primary ;
+	e5 = {e5complement} complement e5
+		| {adde5} add e5
+		| {minuse5} minus e5
+		| {primary} primary ;
 			
-	primary = field_access
-		| method_call
-		| int_lit
-		| char_lit
-		| str_lit
-		| float_lit
-		| true
-		| false
+	primary = {primary_field_access} field_access
+		| {primary_method_call} method_call
+		| {primary_int_lit} int_lit
+		| {primary_char_lit} char_lit
+		| {primary_str_lit} str_lit
+		| {primary_float_lit} float_lit
+		| {primary_true} true
+		| {primary_false} false
 		| left_brace expr right_brace;
 			
 			
