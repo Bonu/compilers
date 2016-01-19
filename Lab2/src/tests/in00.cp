@@ -1,4 +1,2 @@
-/*
-  Test of namespace declarations.
-*/
+class xyz { }
 

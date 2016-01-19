@@ -28,19 +28,19 @@ class TokenIndex extends AnalysisAdapter
     }
 
     @Override
-    public void caseTFloatLit(@SuppressWarnings("unused") TFloatLit node)
+    public void caseTFloatLiteral(@SuppressWarnings("unused") TFloatLiteral node)
     {
         this.index = 3;
     }
 
     @Override
-    public void caseTInteger(@SuppressWarnings("unused") TInteger node)
+    public void caseTIntegerLiteral(@SuppressWarnings("unused") TIntegerLiteral node)
     {
         this.index = 4;
     }
 
     @Override
-    public void caseTCharacter(@SuppressWarnings("unused") TCharacter node)
+    public void caseTCharacterLiteral(@SuppressWarnings("unused") TCharacterLiteral node)
     {
         this.index = 5;
     }
