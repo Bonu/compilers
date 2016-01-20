@@ -75,13 +75,7 @@ Tokens
 	doccomment	='/**' '*' * ( not_star_not_slash not_star * '*' + ) * '/';
 	
 	
-// *****************       Literals       ********************************
-		ksemicolon		=	semicolon;
-		identifier		=	java_letter java_letter_or_digit* ; 
-		float_literal	=	'0'+'.'+'0'* | digit* '.' digit*;
-		integer_literal	=	'0' | nonzerodigit digit*;
-		character_literal	=	''' (single_character | escape_sequence | '"') ''';
-		string_literal	=	'"' string_character * '"';
+
 		
 		
 // *****************       Operators       *******************************
@@ -170,6 +164,14 @@ Tokens
 		unsigned	='unsigned';
 		void		='void';	
 		
+// *****************       Literals       ********************************
+		ksemicolon		=	semicolon;
+		identifier		=	java_letter java_letter_or_digit* ; 
+		float_literal	=	'0'+'.'+'0'* | digit* '.' digit*;
+		integer_literal	=	'0' | nonzerodigit digit*;
+		character_literal	=	''' (single_character | escape_sequence | '"') ''';
+		string_literal	=	'"' string_character * '"';
+		
 	
 Ignored Tokens
 		white_space,
@@ -177,9 +179,9 @@ Ignored Tokens
 		mlcomment;
 		
 Productions
-	program = class_decls;
+	program = {class_decls}class_decls;
 	
-	class_decls = {class_decls}  class_decl class_decls 
+	class_decls = {class_decls_multiple}  class_decls class_decl 
 		| {class_declare_single} class_decl;
 			
 	class_decl = 
@@ -189,8 +191,8 @@ Productions
 	class_hdr = {t_class}k_class identifier;
 			
 	class_member_decls = 
-		{class_member_decls} class_member_decls [left]: class_member
-		| [right]: class_member ;
+		{class_member_decls} class_member_decls class_member
+		| {class_member_single} class_member ;
 			
 	class_member = 
 		{field} field
@@ -203,11 +205,11 @@ Productions
 		| {type3}type [three]:identifier left_sbrace integer_literal right_sbrace semicolon;
 
 	type =	
-		{int} int
-		| {char} char
-		| {bool} bool
-		| {string} string
-		| {float} float;
+		{int} int semicolon
+		| {char} char semicolon
+		| {bool} bool semicolon
+		| {string} string semicolon
+		| {float} float semicolon ;
 			
 	method_decl = 
 		{method_arguments} method_hdr left_brace formals right_brace block

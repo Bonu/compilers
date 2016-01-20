@@ -5,16 +5,16 @@ package cpparser.node;
 import cpparser.analysis.*;
 
 @SuppressWarnings("nls")
-public final class AProgram extends PProgram
+public final class AClassDeclsProgram extends PProgram
 {
     private PClassDecls _classDecls_;
 
-    public AProgram()
+    public AClassDeclsProgram()
     {
         // Constructor
     }
 
-    public AProgram(
+    public AClassDeclsProgram(
         @SuppressWarnings("hiding") PClassDecls _classDecls_)
     {
         // Constructor
@@ -25,14 +25,14 @@ public final class AProgram extends PProgram
     @Override
     public Object clone()
     {
-        return new AProgram(
+        return new AClassDeclsProgram(
             cloneNode(this._classDecls_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAProgram(this);
+        ((Analysis) sw).caseAClassDeclsProgram(this);
     }
 
     public PClassDecls getClassDecls()

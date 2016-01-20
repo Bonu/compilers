@@ -8,6 +8,7 @@ import cpparser.analysis.*;
 public final class ACharType extends PType
 {
     private TChar _char_;
+    private TSemicolon _semicolon_;
 
     public ACharType()
     {
@@ -15,10 +16,13 @@ public final class ACharType extends PType
     }
 
     public ACharType(
-        @SuppressWarnings("hiding") TChar _char_)
+        @SuppressWarnings("hiding") TChar _char_,
+        @SuppressWarnings("hiding") TSemicolon _semicolon_)
     {
         // Constructor
         setChar(_char_);
+
+        setSemicolon(_semicolon_);
 
     }
 
@@ -26,7 +30,8 @@ public final class ACharType extends PType
     public Object clone()
     {
         return new ACharType(
-            cloneNode(this._char_));
+            cloneNode(this._char_),
+            cloneNode(this._semicolon_));
     }
 
     @Override
@@ -60,11 +65,37 @@ public final class ACharType extends PType
         this._char_ = node;
     }
 
+    public TSemicolon getSemicolon()
+    {
+        return this._semicolon_;
+    }
+
+    public void setSemicolon(TSemicolon node)
+    {
+        if(this._semicolon_ != null)
+        {
+            this._semicolon_.parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.parent() != null)
+            {
+                node.parent().removeChild(node);
+            }
+
+            node.parent(this);
+        }
+
+        this._semicolon_ = node;
+    }
+
     @Override
     public String toString()
     {
         return ""
-            + toString(this._char_);
+            + toString(this._char_)
+            + toString(this._semicolon_);
     }
 
     @Override
@@ -74,6 +105,12 @@ public final class ACharType extends PType
         if(this._char_ == child)
         {
             this._char_ = null;
+            return;
+        }
+
+        if(this._semicolon_ == child)
+        {
+            this._semicolon_ = null;
             return;
         }
 
@@ -87,6 +124,12 @@ public final class ACharType extends PType
         if(this._char_ == oldChild)
         {
             setChar((TChar) newChild);
+            return;
+        }
+
+        if(this._semicolon_ == oldChild)
+        {
+            setSemicolon((TSemicolon) newChild);
             return;
         }
 

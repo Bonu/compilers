@@ -75,13 +75,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAProgram(AProgram node)
+    public void caseAClassDeclsProgram(AClassDeclsProgram node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAClassDeclsClassDecls(AClassDeclsClassDecls node)
+    public void caseAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node)
     {
         defaultCase(node);
     }
@@ -117,7 +117,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAClassMemberDecls(AClassMemberDecls node)
+    public void caseAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node)
     {
         defaultCase(node);
     }
@@ -621,42 +621,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTKsemicolon(TKsemicolon node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTIdentifier(TIdentifier node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTFloatLiteral(TFloatLiteral node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTIntegerLiteral(TIntegerLiteral node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTCharacterLiteral(TCharacterLiteral node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTStringLiteral(TStringLiteral node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseTComma(TComma node)
     {
         defaultCase(node);
@@ -1132,6 +1096,42 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTVoid(TVoid node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTKsemicolon(TKsemicolon node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTIdentifier(TIdentifier node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTFloatLiteral(TFloatLiteral node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTIntegerLiteral(TIntegerLiteral node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTCharacterLiteral(TCharacterLiteral node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTStringLiteral(TStringLiteral node)
     {
         defaultCase(node);
     }

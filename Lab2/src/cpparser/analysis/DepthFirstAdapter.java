@@ -36,50 +36,50 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outStart(node);
     }
 
-    public void inAProgram(AProgram node)
+    public void inAClassDeclsProgram(AClassDeclsProgram node)
     {
         defaultIn(node);
     }
 
-    public void outAProgram(AProgram node)
+    public void outAClassDeclsProgram(AClassDeclsProgram node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAProgram(AProgram node)
+    public void caseAClassDeclsProgram(AClassDeclsProgram node)
     {
-        inAProgram(node);
+        inAClassDeclsProgram(node);
         if(node.getClassDecls() != null)
         {
             node.getClassDecls().apply(this);
         }
-        outAProgram(node);
+        outAClassDeclsProgram(node);
     }
 
-    public void inAClassDeclsClassDecls(AClassDeclsClassDecls node)
+    public void inAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node)
     {
         defaultIn(node);
     }
 
-    public void outAClassDeclsClassDecls(AClassDeclsClassDecls node)
+    public void outAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAClassDeclsClassDecls(AClassDeclsClassDecls node)
+    public void caseAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node)
     {
-        inAClassDeclsClassDecls(node);
+        inAClassDeclsMultipleClassDecls(node);
+        if(node.getClassDecls() != null)
+        {
+            node.getClassDecls().apply(this);
+        }
         if(node.getClassDecl() != null)
         {
             node.getClassDecl().apply(this);
         }
-        if(node.getClassDecls() != null)
-        {
-            node.getClassDecls().apply(this);
-        }
-        outAClassDeclsClassDecls(node);
+        outAClassDeclsMultipleClassDecls(node);
     }
 
     public void inAClassDeclareSingleClassDecls(AClassDeclareSingleClassDecls node)
@@ -204,32 +204,32 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getClassMemberDecls().apply(this);
         }
-        if(node.getLeft() != null)
+        if(node.getClassMember() != null)
         {
-            node.getLeft().apply(this);
+            node.getClassMember().apply(this);
         }
         outAClassMemberDeclsClassMemberDecls(node);
     }
 
-    public void inAClassMemberDecls(AClassMemberDecls node)
+    public void inAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node)
     {
         defaultIn(node);
     }
 
-    public void outAClassMemberDecls(AClassMemberDecls node)
+    public void outAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAClassMemberDecls(AClassMemberDecls node)
+    public void caseAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node)
     {
-        inAClassMemberDecls(node);
-        if(node.getRight() != null)
+        inAClassMemberSingleClassMemberDecls(node);
+        if(node.getClassMember() != null)
         {
-            node.getRight().apply(this);
+            node.getClassMember().apply(this);
         }
-        outAClassMemberDecls(node);
+        outAClassMemberSingleClassMemberDecls(node);
     }
 
     public void inAFieldClassMember(AFieldClassMember node)
@@ -420,6 +420,10 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getInt().apply(this);
         }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         outAIntType(node);
     }
 
@@ -440,6 +444,10 @@ public class DepthFirstAdapter extends AnalysisAdapter
         if(node.getChar() != null)
         {
             node.getChar().apply(this);
+        }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
         }
         outACharType(node);
     }
@@ -462,6 +470,10 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getBool().apply(this);
         }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         outABoolType(node);
     }
 
@@ -483,6 +495,10 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getString().apply(this);
         }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         outAStringType(node);
     }
 
@@ -503,6 +519,10 @@ public class DepthFirstAdapter extends AnalysisAdapter
         if(node.getFloat() != null)
         {
             node.getFloat().apply(this);
+        }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
         }
         outAFloatType(node);
     }

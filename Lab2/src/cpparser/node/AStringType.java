@@ -8,6 +8,7 @@ import cpparser.analysis.*;
 public final class AStringType extends PType
 {
     private TString _string_;
+    private TSemicolon _semicolon_;
 
     public AStringType()
     {
@@ -15,10 +16,13 @@ public final class AStringType extends PType
     }
 
     public AStringType(
-        @SuppressWarnings("hiding") TString _string_)
+        @SuppressWarnings("hiding") TString _string_,
+        @SuppressWarnings("hiding") TSemicolon _semicolon_)
     {
         // Constructor
         setString(_string_);
+
+        setSemicolon(_semicolon_);
 
     }
 
@@ -26,7 +30,8 @@ public final class AStringType extends PType
     public Object clone()
     {
         return new AStringType(
-            cloneNode(this._string_));
+            cloneNode(this._string_),
+            cloneNode(this._semicolon_));
     }
 
     @Override
@@ -60,11 +65,37 @@ public final class AStringType extends PType
         this._string_ = node;
     }
 
+    public TSemicolon getSemicolon()
+    {
+        return this._semicolon_;
+    }
+
+    public void setSemicolon(TSemicolon node)
+    {
+        if(this._semicolon_ != null)
+        {
+            this._semicolon_.parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.parent() != null)
+            {
+                node.parent().removeChild(node);
+            }
+
+            node.parent(this);
+        }
+
+        this._semicolon_ = node;
+    }
+
     @Override
     public String toString()
     {
         return ""
-            + toString(this._string_);
+            + toString(this._string_)
+            + toString(this._semicolon_);
     }
 
     @Override
@@ -74,6 +105,12 @@ public final class AStringType extends PType
         if(this._string_ == child)
         {
             this._string_ = null;
+            return;
+        }
+
+        if(this._semicolon_ == child)
+        {
+            this._semicolon_ = null;
             return;
         }
 
@@ -87,6 +124,12 @@ public final class AStringType extends PType
         if(this._string_ == oldChild)
         {
             setString((TString) newChild);
+            return;
+        }
+
+        if(this._semicolon_ == oldChild)
+        {
+            setSemicolon((TSemicolon) newChild);
             return;
         }
 

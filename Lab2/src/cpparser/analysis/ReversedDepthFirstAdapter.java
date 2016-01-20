@@ -36,50 +36,50 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         outStart(node);
     }
 
-    public void inAProgram(AProgram node)
+    public void inAClassDeclsProgram(AClassDeclsProgram node)
     {
         defaultIn(node);
     }
 
-    public void outAProgram(AProgram node)
+    public void outAClassDeclsProgram(AClassDeclsProgram node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAProgram(AProgram node)
+    public void caseAClassDeclsProgram(AClassDeclsProgram node)
     {
-        inAProgram(node);
+        inAClassDeclsProgram(node);
         if(node.getClassDecls() != null)
         {
             node.getClassDecls().apply(this);
         }
-        outAProgram(node);
+        outAClassDeclsProgram(node);
     }
 
-    public void inAClassDeclsClassDecls(AClassDeclsClassDecls node)
+    public void inAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node)
     {
         defaultIn(node);
     }
 
-    public void outAClassDeclsClassDecls(AClassDeclsClassDecls node)
+    public void outAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAClassDeclsClassDecls(AClassDeclsClassDecls node)
+    public void caseAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node)
     {
-        inAClassDeclsClassDecls(node);
-        if(node.getClassDecls() != null)
-        {
-            node.getClassDecls().apply(this);
-        }
+        inAClassDeclsMultipleClassDecls(node);
         if(node.getClassDecl() != null)
         {
             node.getClassDecl().apply(this);
         }
-        outAClassDeclsClassDecls(node);
+        if(node.getClassDecls() != null)
+        {
+            node.getClassDecls().apply(this);
+        }
+        outAClassDeclsMultipleClassDecls(node);
     }
 
     public void inAClassDeclareSingleClassDecls(AClassDeclareSingleClassDecls node)
@@ -200,9 +200,9 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseAClassMemberDeclsClassMemberDecls(AClassMemberDeclsClassMemberDecls node)
     {
         inAClassMemberDeclsClassMemberDecls(node);
-        if(node.getLeft() != null)
+        if(node.getClassMember() != null)
         {
-            node.getLeft().apply(this);
+            node.getClassMember().apply(this);
         }
         if(node.getClassMemberDecls() != null)
         {
@@ -211,25 +211,25 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         outAClassMemberDeclsClassMemberDecls(node);
     }
 
-    public void inAClassMemberDecls(AClassMemberDecls node)
+    public void inAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node)
     {
         defaultIn(node);
     }
 
-    public void outAClassMemberDecls(AClassMemberDecls node)
+    public void outAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAClassMemberDecls(AClassMemberDecls node)
+    public void caseAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node)
     {
-        inAClassMemberDecls(node);
-        if(node.getRight() != null)
+        inAClassMemberSingleClassMemberDecls(node);
+        if(node.getClassMember() != null)
         {
-            node.getRight().apply(this);
+            node.getClassMember().apply(this);
         }
-        outAClassMemberDecls(node);
+        outAClassMemberSingleClassMemberDecls(node);
     }
 
     public void inAFieldClassMember(AFieldClassMember node)
@@ -416,6 +416,10 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseAIntType(AIntType node)
     {
         inAIntType(node);
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         if(node.getInt() != null)
         {
             node.getInt().apply(this);
@@ -437,6 +441,10 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseACharType(ACharType node)
     {
         inACharType(node);
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         if(node.getChar() != null)
         {
             node.getChar().apply(this);
@@ -458,6 +466,10 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseABoolType(ABoolType node)
     {
         inABoolType(node);
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         if(node.getBool() != null)
         {
             node.getBool().apply(this);
@@ -479,6 +491,10 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseAStringType(AStringType node)
     {
         inAStringType(node);
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         if(node.getString() != null)
         {
             node.getString().apply(this);
@@ -500,6 +516,10 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseAFloatType(AFloatType node)
     {
         inAFloatType(node);
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
         if(node.getFloat() != null)
         {
             node.getFloat().apply(this);

@@ -5,46 +5,46 @@ package cpparser.node;
 import cpparser.analysis.*;
 
 @SuppressWarnings("nls")
-public final class AClassMemberDecls extends PClassMemberDecls
+public final class AClassMemberSingleClassMemberDecls extends PClassMemberDecls
 {
-    private PClassMember _right_;
+    private PClassMember _classMember_;
 
-    public AClassMemberDecls()
+    public AClassMemberSingleClassMemberDecls()
     {
         // Constructor
     }
 
-    public AClassMemberDecls(
-        @SuppressWarnings("hiding") PClassMember _right_)
+    public AClassMemberSingleClassMemberDecls(
+        @SuppressWarnings("hiding") PClassMember _classMember_)
     {
         // Constructor
-        setRight(_right_);
+        setClassMember(_classMember_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AClassMemberDecls(
-            cloneNode(this._right_));
+        return new AClassMemberSingleClassMemberDecls(
+            cloneNode(this._classMember_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAClassMemberDecls(this);
+        ((Analysis) sw).caseAClassMemberSingleClassMemberDecls(this);
     }
 
-    public PClassMember getRight()
+    public PClassMember getClassMember()
     {
-        return this._right_;
+        return this._classMember_;
     }
 
-    public void setRight(PClassMember node)
+    public void setClassMember(PClassMember node)
     {
-        if(this._right_ != null)
+        if(this._classMember_ != null)
         {
-            this._right_.parent(null);
+            this._classMember_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AClassMemberDecls extends PClassMemberDecls
             node.parent(this);
         }
 
-        this._right_ = node;
+        this._classMember_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._right_);
+            + toString(this._classMember_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._right_ == child)
+        if(this._classMember_ == child)
         {
-            this._right_ = null;
+            this._classMember_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AClassMemberDecls extends PClassMemberDecls
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._right_ == oldChild)
+        if(this._classMember_ == oldChild)
         {
-            setRight((PClassMember) newChild);
+            setClassMember((PClassMember) newChild);
             return;
         }
 

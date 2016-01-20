@@ -8,7 +8,7 @@ import cpparser.analysis.*;
 public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
 {
     private PClassMemberDecls _classMemberDecls_;
-    private PClassMember _left_;
+    private PClassMember _classMember_;
 
     public AClassMemberDeclsClassMemberDecls()
     {
@@ -17,12 +17,12 @@ public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
 
     public AClassMemberDeclsClassMemberDecls(
         @SuppressWarnings("hiding") PClassMemberDecls _classMemberDecls_,
-        @SuppressWarnings("hiding") PClassMember _left_)
+        @SuppressWarnings("hiding") PClassMember _classMember_)
     {
         // Constructor
         setClassMemberDecls(_classMemberDecls_);
 
-        setLeft(_left_);
+        setClassMember(_classMember_);
 
     }
 
@@ -31,7 +31,7 @@ public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
     {
         return new AClassMemberDeclsClassMemberDecls(
             cloneNode(this._classMemberDecls_),
-            cloneNode(this._left_));
+            cloneNode(this._classMember_));
     }
 
     @Override
@@ -65,16 +65,16 @@ public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
         this._classMemberDecls_ = node;
     }
 
-    public PClassMember getLeft()
+    public PClassMember getClassMember()
     {
-        return this._left_;
+        return this._classMember_;
     }
 
-    public void setLeft(PClassMember node)
+    public void setClassMember(PClassMember node)
     {
-        if(this._left_ != null)
+        if(this._classMember_ != null)
         {
-            this._left_.parent(null);
+            this._classMember_.parent(null);
         }
 
         if(node != null)
@@ -87,7 +87,7 @@ public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
             node.parent(this);
         }
 
-        this._left_ = node;
+        this._classMember_ = node;
     }
 
     @Override
@@ -95,7 +95,7 @@ public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
     {
         return ""
             + toString(this._classMemberDecls_)
-            + toString(this._left_);
+            + toString(this._classMember_);
     }
 
     @Override
@@ -108,9 +108,9 @@ public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
             return;
         }
 
-        if(this._left_ == child)
+        if(this._classMember_ == child)
         {
-            this._left_ = null;
+            this._classMember_ = null;
             return;
         }
 
@@ -127,9 +127,9 @@ public final class AClassMemberDeclsClassMemberDecls extends PClassMemberDecls
             return;
         }
 
-        if(this._left_ == oldChild)
+        if(this._classMember_ == oldChild)
         {
-            setLeft((PClassMember) newChild);
+            setClassMember((PClassMember) newChild);
             return;
         }
 

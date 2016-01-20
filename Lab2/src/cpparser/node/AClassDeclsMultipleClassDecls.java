@@ -5,64 +5,39 @@ package cpparser.node;
 import cpparser.analysis.*;
 
 @SuppressWarnings("nls")
-public final class AClassDeclsClassDecls extends PClassDecls
+public final class AClassDeclsMultipleClassDecls extends PClassDecls
 {
-    private PClassDecl _classDecl_;
     private PClassDecls _classDecls_;
+    private PClassDecl _classDecl_;
 
-    public AClassDeclsClassDecls()
+    public AClassDeclsMultipleClassDecls()
     {
         // Constructor
     }
 
-    public AClassDeclsClassDecls(
-        @SuppressWarnings("hiding") PClassDecl _classDecl_,
-        @SuppressWarnings("hiding") PClassDecls _classDecls_)
+    public AClassDeclsMultipleClassDecls(
+        @SuppressWarnings("hiding") PClassDecls _classDecls_,
+        @SuppressWarnings("hiding") PClassDecl _classDecl_)
     {
         // Constructor
-        setClassDecl(_classDecl_);
-
         setClassDecls(_classDecls_);
+
+        setClassDecl(_classDecl_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AClassDeclsClassDecls(
-            cloneNode(this._classDecl_),
-            cloneNode(this._classDecls_));
+        return new AClassDeclsMultipleClassDecls(
+            cloneNode(this._classDecls_),
+            cloneNode(this._classDecl_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAClassDeclsClassDecls(this);
-    }
-
-    public PClassDecl getClassDecl()
-    {
-        return this._classDecl_;
-    }
-
-    public void setClassDecl(PClassDecl node)
-    {
-        if(this._classDecl_ != null)
-        {
-            this._classDecl_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._classDecl_ = node;
+        ((Analysis) sw).caseAClassDeclsMultipleClassDecls(this);
     }
 
     public PClassDecls getClassDecls()
@@ -90,27 +65,52 @@ public final class AClassDeclsClassDecls extends PClassDecls
         this._classDecls_ = node;
     }
 
+    public PClassDecl getClassDecl()
+    {
+        return this._classDecl_;
+    }
+
+    public void setClassDecl(PClassDecl node)
+    {
+        if(this._classDecl_ != null)
+        {
+            this._classDecl_.parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.parent() != null)
+            {
+                node.parent().removeChild(node);
+            }
+
+            node.parent(this);
+        }
+
+        this._classDecl_ = node;
+    }
+
     @Override
     public String toString()
     {
         return ""
-            + toString(this._classDecl_)
-            + toString(this._classDecls_);
+            + toString(this._classDecls_)
+            + toString(this._classDecl_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._classDecl_ == child)
-        {
-            this._classDecl_ = null;
-            return;
-        }
-
         if(this._classDecls_ == child)
         {
             this._classDecls_ = null;
+            return;
+        }
+
+        if(this._classDecl_ == child)
+        {
+            this._classDecl_ = null;
             return;
         }
 
@@ -121,15 +121,15 @@ public final class AClassDeclsClassDecls extends PClassDecls
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._classDecl_ == oldChild)
-        {
-            setClassDecl((PClassDecl) newChild);
-            return;
-        }
-
         if(this._classDecls_ == oldChild)
         {
             setClassDecls((PClassDecls) newChild);
+            return;
+        }
+
+        if(this._classDecl_ == oldChild)
+        {
+            setClassDecl((PClassDecl) newChild);
             return;
         }
 

@@ -1,0 +1,79 @@
+
+C:\Users\Jbonu\git\compilers\Lab2>C:/data/java/jdk1.7.0_79/bin/java.exe -classpath C:/Users/Jbonu/git/compilers/Documents/sablecc-3.6/lib/sablecc.jar org.sablecc.sablecc.SableCC C:/Users/Jbonu/git/compilers/Lab2/src/CP_Parser.scc 
+
+SableCC version 3.6
+Copyright (C) 1997-2012 Etienne M. Gagnon <egagnon@j-meg.com> and
+others.  All rights reserved.
+
+This software comes with ABSOLUTELY NO WARRANTY.  This is free software,
+and you are welcome to redistribute it under certain conditions.
+
+Type 'sablecc -license' to view
+the complete copyright notice and license.
+
+
+ -- Generating parser for CP_Parser.scc in C:\Users\Jbonu\git\compilers\Lab2\src
+Adding productions and alternative of section AST.
+Verifying identifiers.
+Verifying ast identifiers.
+Adding empty productions and empty alternative transformation if necessary.
+Adding productions and alternative transformation if necessary.
+computing alternative symbol table identifiers.
+Verifying production transform identifiers.
+Verifying ast alternatives transform identifiers.
+Generating token classes.
+Generating production classes.
+Generating alternative classes.
+Generating analysis classes.
+Generating utility classes.
+Generating the lexer.
+ State: NORMAL
+ - Constructing NFA.
+................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+ - Constructing DFA.
+...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+ - resolving ACCEPT states.
+Generating the parser.
+.................................................................................................................................................................
+.................................................................................................................................................................
+.................................................................................................................................................................
+...
+..............
+A previous conflict that we've tried to solve by inline some productions inside the grammars cannot be solved that way. The transformed grammar is : 
+
+
+shift/reduce conflict in state [stack: TLeftFbrace PClassMemberDecls *] on TSemicolon in {
+	[ P$ClassMemberDecls = PClassMemberDecls * ] followed by TSemicolon (reduce),
+	[ PClassMember = * TSemicolon ] (shift)
+}
+
+shift/reduce conflict in state [stack: TLeftFbrace PClassMemberDecls *] on TBool in {
+	[ P$ClassMemberDecls = PClassMemberDecls * ] followed by TBool (reduce),
+	[ PType = * TBool ] (shift)
+}
+
+shift/reduce conflict in state [stack: TLeftFbrace PClassMemberDecls *] on TChar in {
+	[ P$ClassMemberDecls = PClassMemberDecls * ] followed by TChar (reduce),
+	[ PType = * TChar ] (shift)
+}
+
+shift/reduce conflict in state [stack: TLeftFbrace PClassMemberDecls *] on TFloat in {
+	[ P$ClassMemberDecls = PClassMemberDecls * ] followed by TFloat (reduce),
+	[ PType = * TFloat ] (shift)
+}
+
+shift/reduce conflict in state [stack: TLeftFbrace PClassMemberDecls *] on TInt in {
+	[ P$ClassMemberDecls = PClassMemberDecls * ] followed by TInt (reduce),
+	[ PType = * TInt ] (shift)
+}
+
+shift/reduce conflict in state [stack: TLeftFbrace PClassMemberDecls *] on TString in {
+	[ P$ClassMemberDecls = PClassMemberDecls * ] followed by TString (reduce),
+	[ PType = * TString ] (shift)
+}
+
+shift/reduce conflict in state [stack: TLeftFbrace PClassMemberDecls *] on TVoid in {
+	[ P$ClassMemberDecls = PClassMemberDecls * ] followed by TVoid (reduce),
+	[ PMethodHdr = * TVoid TIdentifier ] (shift)
+}

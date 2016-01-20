@@ -12,14 +12,14 @@ public interface Analysis extends Switch
     void setOut(Node node, Object o);
 
     void caseStart(Start node);
-    void caseAProgram(AProgram node);
-    void caseAClassDeclsClassDecls(AClassDeclsClassDecls node);
+    void caseAClassDeclsProgram(AClassDeclsProgram node);
+    void caseAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node);
     void caseAClassDeclareSingleClassDecls(AClassDeclareSingleClassDecls node);
     void caseAClassHdrLeftClassDecl(AClassHdrLeftClassDecl node);
     void caseAClassHdrRightClassDecl(AClassHdrRightClassDecl node);
     void caseATClassClassHdr(ATClassClassHdr node);
     void caseAClassMemberDeclsClassMemberDecls(AClassMemberDeclsClassMemberDecls node);
-    void caseAClassMemberDecls(AClassMemberDecls node);
+    void caseAClassMemberSingleClassMemberDecls(AClassMemberSingleClassMemberDecls node);
     void caseAFieldClassMember(AFieldClassMember node);
     void caseAMethodClassMember(AMethodClassMember node);
     void caseASemicolonClassMember(ASemicolonClassMember node);
@@ -104,12 +104,6 @@ public interface Analysis extends Switch
     void caseTSlcomment(TSlcomment node);
     void caseTMlcomment(TMlcomment node);
     void caseTDoccomment(TDoccomment node);
-    void caseTKsemicolon(TKsemicolon node);
-    void caseTIdentifier(TIdentifier node);
-    void caseTFloatLiteral(TFloatLiteral node);
-    void caseTIntegerLiteral(TIntegerLiteral node);
-    void caseTCharacterLiteral(TCharacterLiteral node);
-    void caseTStringLiteral(TStringLiteral node);
     void caseTComma(TComma node);
     void caseTDot(TDot node);
     void caseTAssign(TAssign node);
@@ -190,5 +184,11 @@ public interface Analysis extends Switch
     void caseTWhile(TWhile node);
     void caseTUnsigned(TUnsigned node);
     void caseTVoid(TVoid node);
+    void caseTKsemicolon(TKsemicolon node);
+    void caseTIdentifier(TIdentifier node);
+    void caseTFloatLiteral(TFloatLiteral node);
+    void caseTIntegerLiteral(TIntegerLiteral node);
+    void caseTCharacterLiteral(TCharacterLiteral node);
+    void caseTStringLiteral(TStringLiteral node);
     void caseEOF(EOF node);
 }
