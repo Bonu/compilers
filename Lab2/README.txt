@@ -1,12 +1,34 @@
+
+Status:
+-------
+The test files in08.cp and in09.cpp are failing due to the issue with block contains the variable declarations.
+
+All other test files executed without error.
+
+in01.cp - PASS
+in02.cp - PASS
+in03.cp - PASS
+in04.cp - PASS
+in05.cp - PASS
+in06.cp - PASS
+in07.cp - PASS
+in08.cp - FAILED
+in09.cp - FAILED
+in10.cp - PASS
+
+
+
+
 Commands:
+----------
+Set Gradle environment.
 
 gradle clean
-
-cd C:\Users\Jbonu\git\compilers\Lab2>
-
-C:/data/java/jdk1.7.0_79/bin/java.exe -classpath C:/Users/Jbonu/git/compilers/Documents/sablecc-3.6/lib/sablecc.jar org.sablecc.sablecc.SableCC C:/Users/Jbonu/git/compilers/Lab2/src/CP_Parser.scc
+gradle exec(windows)
 
 
+Issues:-
+-----------
 ISSUE 1 - fixed
 Verifying identifiers.
 java.lang.RuntimeException: [0,0] Redefinition of AClassDecls.
@@ -24,7 +46,7 @@ Starting Lexer
 Starting Parser
 [59,9] expecting: ']'
 
-ISSUE 5 - 
+
 
 References:
 http://sablecc.sourceforge.net/thesis/thesis.html#PAGE45
