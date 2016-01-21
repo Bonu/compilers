@@ -165,13 +165,12 @@ Tokens
 		void		='void';	
 		
 // *****************       Literals       ********************************
-		ksemicolon		=	semicolon;
 		identifier		=	java_letter java_letter_or_digit* ; 
+		ksemicolon		=	semicolon;
 		float_literal	=	'0'+'.'+'0'* | digit* '.' digit*;
+		string_literal	=	'"' string_character * '"';
 		integer_literal	=	'0' | nonzerodigit digit*;
 		character_literal	=	''' (single_character | escape_sequence | '"') ''';
-		string_literal	=	'"' string_character * '"';
-		
 	
 Ignored Tokens
 		white_space,
@@ -181,12 +180,12 @@ Ignored Tokens
 Productions
 	program = {class_decls}class_decls;
 	
-	class_decls = {class_decls_multiple}  class_decls class_decl 
-		| {class_declare_single} class_decl;
+	class_decls = {class_decls_multiple}class_decls class_decl |
+				{class_declare_single}class_decl;
 			
 	class_decl = 
-		{class_hdr_left} class_hdr left_fbrace  right_fbrace
-		| {class_hdr_right} left_fbrace class_member_decls right_fbrace;
+		{class_members} class_hdr left_fbrace class_member_decls right_fbrace
+		| {class_empty}class_hdr left_fbrace  right_fbrace;
 
 	class_hdr = {t_class}k_class identifier;
 			
@@ -197,19 +196,10 @@ Productions
 	class_member = 
 		{field} field
 		| {method} method_decl
+		| {block} block
 		| {semicolon} semicolon ;
 
-	field = 
-		{type1}type [one]:identifier semicolon
-		| {type2}type [two]:identifier assign expr semicolon
-		| {type3}type [three]:identifier left_sbrace integer_literal right_sbrace semicolon;
-
-	type =	
-		{int} int semicolon
-		| {char} char semicolon
-		| {bool} bool semicolon
-		| {string} string semicolon
-		| {float} float semicolon ;
+	
 			
 	method_decl = 
 		{method_arguments} method_hdr left_brace formals right_brace block
@@ -230,6 +220,18 @@ Productions
 		{stmts_block} left_fbrace stmts right_fbrace
 		| {empty_block} left_fbrace right_fbrace;
 	
+	field = 
+		{type1}type [one]:identifier semicolon
+		| {type2}type [two]:identifier assign expr semicolon
+		| {type3}type [three]:identifier left_sbrace integer_literal right_sbrace semicolon;
+
+	type =	
+		{int} int 
+		| {char} char 
+		| {bool} bool 
+		| {string} string 
+		| {float} float  ;
+		
 	stmts = 
 		{many_stmts} stmts stmt
 		| {single_stmt} stmt;

@@ -496,13 +496,13 @@ class TokenIndex extends AnalysisAdapter
     }
 
     @Override
-    public void caseTKsemicolon(@SuppressWarnings("unused") TKsemicolon node)
+    public void caseTIdentifier(@SuppressWarnings("unused") TIdentifier node)
     {
         this.index = 81;
     }
 
     @Override
-    public void caseTIdentifier(@SuppressWarnings("unused") TIdentifier node)
+    public void caseTKsemicolon(@SuppressWarnings("unused") TKsemicolon node)
     {
         this.index = 82;
     }
@@ -514,19 +514,19 @@ class TokenIndex extends AnalysisAdapter
     }
 
     @Override
-    public void caseTIntegerLiteral(@SuppressWarnings("unused") TIntegerLiteral node)
+    public void caseTStringLiteral(@SuppressWarnings("unused") TStringLiteral node)
     {
         this.index = 84;
     }
 
     @Override
-    public void caseTCharacterLiteral(@SuppressWarnings("unused") TCharacterLiteral node)
+    public void caseTIntegerLiteral(@SuppressWarnings("unused") TIntegerLiteral node)
     {
         this.index = 85;
     }
 
     @Override
-    public void caseTStringLiteral(@SuppressWarnings("unused") TStringLiteral node)
+    public void caseTCharacterLiteral(@SuppressWarnings("unused") TCharacterLiteral node)
     {
         this.index = 86;
     }

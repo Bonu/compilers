@@ -8,7 +8,6 @@ import cpparser.analysis.*;
 public final class AIntType extends PType
 {
     private TInt _int_;
-    private TSemicolon _semicolon_;
 
     public AIntType()
     {
@@ -16,13 +15,10 @@ public final class AIntType extends PType
     }
 
     public AIntType(
-        @SuppressWarnings("hiding") TInt _int_,
-        @SuppressWarnings("hiding") TSemicolon _semicolon_)
+        @SuppressWarnings("hiding") TInt _int_)
     {
         // Constructor
         setInt(_int_);
-
-        setSemicolon(_semicolon_);
 
     }
 
@@ -30,8 +26,7 @@ public final class AIntType extends PType
     public Object clone()
     {
         return new AIntType(
-            cloneNode(this._int_),
-            cloneNode(this._semicolon_));
+            cloneNode(this._int_));
     }
 
     @Override
@@ -65,37 +60,11 @@ public final class AIntType extends PType
         this._int_ = node;
     }
 
-    public TSemicolon getSemicolon()
-    {
-        return this._semicolon_;
-    }
-
-    public void setSemicolon(TSemicolon node)
-    {
-        if(this._semicolon_ != null)
-        {
-            this._semicolon_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._semicolon_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._int_)
-            + toString(this._semicolon_);
+            + toString(this._int_);
     }
 
     @Override
@@ -105,12 +74,6 @@ public final class AIntType extends PType
         if(this._int_ == child)
         {
             this._int_ = null;
-            return;
-        }
-
-        if(this._semicolon_ == child)
-        {
-            this._semicolon_ = null;
             return;
         }
 
@@ -124,12 +87,6 @@ public final class AIntType extends PType
         if(this._int_ == oldChild)
         {
             setInt((TInt) newChild);
-            return;
-        }
-
-        if(this._semicolon_ == oldChild)
-        {
-            setSemicolon((TSemicolon) newChild);
             return;
         }
 

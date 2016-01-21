@@ -8,7 +8,6 @@ import cpparser.analysis.*;
 public final class AFloatType extends PType
 {
     private TFloat _float_;
-    private TSemicolon _semicolon_;
 
     public AFloatType()
     {
@@ -16,13 +15,10 @@ public final class AFloatType extends PType
     }
 
     public AFloatType(
-        @SuppressWarnings("hiding") TFloat _float_,
-        @SuppressWarnings("hiding") TSemicolon _semicolon_)
+        @SuppressWarnings("hiding") TFloat _float_)
     {
         // Constructor
         setFloat(_float_);
-
-        setSemicolon(_semicolon_);
 
     }
 
@@ -30,8 +26,7 @@ public final class AFloatType extends PType
     public Object clone()
     {
         return new AFloatType(
-            cloneNode(this._float_),
-            cloneNode(this._semicolon_));
+            cloneNode(this._float_));
     }
 
     @Override
@@ -65,37 +60,11 @@ public final class AFloatType extends PType
         this._float_ = node;
     }
 
-    public TSemicolon getSemicolon()
-    {
-        return this._semicolon_;
-    }
-
-    public void setSemicolon(TSemicolon node)
-    {
-        if(this._semicolon_ != null)
-        {
-            this._semicolon_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._semicolon_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._float_)
-            + toString(this._semicolon_);
+            + toString(this._float_);
     }
 
     @Override
@@ -105,12 +74,6 @@ public final class AFloatType extends PType
         if(this._float_ == child)
         {
             this._float_ = null;
-            return;
-        }
-
-        if(this._semicolon_ == child)
-        {
-            this._semicolon_ = null;
             return;
         }
 
@@ -124,12 +87,6 @@ public final class AFloatType extends PType
         if(this._float_ == oldChild)
         {
             setFloat((TFloat) newChild);
-            return;
-        }
-
-        if(this._semicolon_ == oldChild)
-        {
-            setSemicolon((TSemicolon) newChild);
             return;
         }
 

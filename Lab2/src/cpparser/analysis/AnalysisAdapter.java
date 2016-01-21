@@ -93,13 +93,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAClassHdrLeftClassDecl(AClassHdrLeftClassDecl node)
+    public void caseAClassMembersClassDecl(AClassMembersClassDecl node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAClassHdrRightClassDecl(AClassHdrRightClassDecl node)
+    public void caseAClassEmptyClassDecl(AClassEmptyClassDecl node)
     {
         defaultCase(node);
     }
@@ -135,55 +135,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseABlockClassMember(ABlockClassMember node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseASemicolonClassMember(ASemicolonClassMember node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAType1Field(AType1Field node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAType2Field(AType2Field node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAType3Field(AType3Field node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAIntType(AIntType node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseACharType(ACharType node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseABoolType(ABoolType node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAStringType(AStringType node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAFloatType(AFloatType node)
     {
         defaultCase(node);
     }
@@ -244,6 +202,54 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseAEmptyBlockBlock(AEmptyBlockBlock node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAType1Field(AType1Field node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAType2Field(AType2Field node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAType3Field(AType3Field node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIntType(AIntType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseACharType(ACharType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseABoolType(ABoolType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAStringType(AStringType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFloatType(AFloatType node)
     {
         defaultCase(node);
     }
@@ -1101,19 +1107,25 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTKsemicolon(TKsemicolon node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseTIdentifier(TIdentifier node)
     {
         defaultCase(node);
     }
 
     @Override
+    public void caseTKsemicolon(TKsemicolon node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTFloatLiteral(TFloatLiteral node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTStringLiteral(TStringLiteral node)
     {
         defaultCase(node);
     }
@@ -1126,12 +1138,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTCharacterLiteral(TCharacterLiteral node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTStringLiteral(TStringLiteral node)
     {
         defaultCase(node);
     }

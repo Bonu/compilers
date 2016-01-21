@@ -19,9 +19,7 @@ public class ParserDriver {
 	    System.out.println("Starting Lexer");
 	    Lexer lex = new Lexer(
 		new PushbackReader( new InputStreamReader(
-				        new FileInputStream(args[0])),
-					  1024));
-
+				new FileInputStream(args[0])), 2048));
 
 	    System.out.println("Starting Parser");
 	    Parser p = new Parser(lex);

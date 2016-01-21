@@ -103,49 +103,24 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outAClassDeclareSingleClassDecls(node);
     }
 
-    public void inAClassHdrLeftClassDecl(AClassHdrLeftClassDecl node)
+    public void inAClassMembersClassDecl(AClassMembersClassDecl node)
     {
         defaultIn(node);
     }
 
-    public void outAClassHdrLeftClassDecl(AClassHdrLeftClassDecl node)
+    public void outAClassMembersClassDecl(AClassMembersClassDecl node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAClassHdrLeftClassDecl(AClassHdrLeftClassDecl node)
+    public void caseAClassMembersClassDecl(AClassMembersClassDecl node)
     {
-        inAClassHdrLeftClassDecl(node);
+        inAClassMembersClassDecl(node);
         if(node.getClassHdr() != null)
         {
             node.getClassHdr().apply(this);
         }
-        if(node.getLeftFbrace() != null)
-        {
-            node.getLeftFbrace().apply(this);
-        }
-        if(node.getRightFbrace() != null)
-        {
-            node.getRightFbrace().apply(this);
-        }
-        outAClassHdrLeftClassDecl(node);
-    }
-
-    public void inAClassHdrRightClassDecl(AClassHdrRightClassDecl node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAClassHdrRightClassDecl(AClassHdrRightClassDecl node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAClassHdrRightClassDecl(AClassHdrRightClassDecl node)
-    {
-        inAClassHdrRightClassDecl(node);
         if(node.getLeftFbrace() != null)
         {
             node.getLeftFbrace().apply(this);
@@ -158,7 +133,36 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getRightFbrace().apply(this);
         }
-        outAClassHdrRightClassDecl(node);
+        outAClassMembersClassDecl(node);
+    }
+
+    public void inAClassEmptyClassDecl(AClassEmptyClassDecl node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAClassEmptyClassDecl(AClassEmptyClassDecl node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAClassEmptyClassDecl(AClassEmptyClassDecl node)
+    {
+        inAClassEmptyClassDecl(node);
+        if(node.getClassHdr() != null)
+        {
+            node.getClassHdr().apply(this);
+        }
+        if(node.getLeftFbrace() != null)
+        {
+            node.getLeftFbrace().apply(this);
+        }
+        if(node.getRightFbrace() != null)
+        {
+            node.getRightFbrace().apply(this);
+        }
+        outAClassEmptyClassDecl(node);
     }
 
     public void inATClassClassHdr(ATClassClassHdr node)
@@ -274,6 +278,27 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outAMethodClassMember(node);
     }
 
+    public void inABlockClassMember(ABlockClassMember node)
+    {
+        defaultIn(node);
+    }
+
+    public void outABlockClassMember(ABlockClassMember node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseABlockClassMember(ABlockClassMember node)
+    {
+        inABlockClassMember(node);
+        if(node.getBlock() != null)
+        {
+            node.getBlock().apply(this);
+        }
+        outABlockClassMember(node);
+    }
+
     public void inASemicolonClassMember(ASemicolonClassMember node)
     {
         defaultIn(node);
@@ -293,238 +318,6 @@ public class DepthFirstAdapter extends AnalysisAdapter
             node.getSemicolon().apply(this);
         }
         outASemicolonClassMember(node);
-    }
-
-    public void inAType1Field(AType1Field node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAType1Field(AType1Field node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAType1Field(AType1Field node)
-    {
-        inAType1Field(node);
-        if(node.getType() != null)
-        {
-            node.getType().apply(this);
-        }
-        if(node.getOne() != null)
-        {
-            node.getOne().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outAType1Field(node);
-    }
-
-    public void inAType2Field(AType2Field node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAType2Field(AType2Field node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAType2Field(AType2Field node)
-    {
-        inAType2Field(node);
-        if(node.getType() != null)
-        {
-            node.getType().apply(this);
-        }
-        if(node.getTwo() != null)
-        {
-            node.getTwo().apply(this);
-        }
-        if(node.getAssign() != null)
-        {
-            node.getAssign().apply(this);
-        }
-        if(node.getExpr() != null)
-        {
-            node.getExpr().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outAType2Field(node);
-    }
-
-    public void inAType3Field(AType3Field node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAType3Field(AType3Field node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAType3Field(AType3Field node)
-    {
-        inAType3Field(node);
-        if(node.getType() != null)
-        {
-            node.getType().apply(this);
-        }
-        if(node.getThree() != null)
-        {
-            node.getThree().apply(this);
-        }
-        if(node.getLeftSbrace() != null)
-        {
-            node.getLeftSbrace().apply(this);
-        }
-        if(node.getIntegerLiteral() != null)
-        {
-            node.getIntegerLiteral().apply(this);
-        }
-        if(node.getRightSbrace() != null)
-        {
-            node.getRightSbrace().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outAType3Field(node);
-    }
-
-    public void inAIntType(AIntType node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAIntType(AIntType node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAIntType(AIntType node)
-    {
-        inAIntType(node);
-        if(node.getInt() != null)
-        {
-            node.getInt().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outAIntType(node);
-    }
-
-    public void inACharType(ACharType node)
-    {
-        defaultIn(node);
-    }
-
-    public void outACharType(ACharType node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseACharType(ACharType node)
-    {
-        inACharType(node);
-        if(node.getChar() != null)
-        {
-            node.getChar().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outACharType(node);
-    }
-
-    public void inABoolType(ABoolType node)
-    {
-        defaultIn(node);
-    }
-
-    public void outABoolType(ABoolType node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseABoolType(ABoolType node)
-    {
-        inABoolType(node);
-        if(node.getBool() != null)
-        {
-            node.getBool().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outABoolType(node);
-    }
-
-    public void inAStringType(AStringType node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAStringType(AStringType node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAStringType(AStringType node)
-    {
-        inAStringType(node);
-        if(node.getString() != null)
-        {
-            node.getString().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outAStringType(node);
-    }
-
-    public void inAFloatType(AFloatType node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAFloatType(AFloatType node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAFloatType(AFloatType node)
-    {
-        inAFloatType(node);
-        if(node.getFloat() != null)
-        {
-            node.getFloat().apply(this);
-        }
-        if(node.getSemicolon() != null)
-        {
-            node.getSemicolon().apply(this);
-        }
-        outAFloatType(node);
     }
 
     public void inAMethodArgumentsMethodDecl(AMethodArgumentsMethodDecl node)
@@ -807,6 +600,218 @@ public class DepthFirstAdapter extends AnalysisAdapter
             node.getRightFbrace().apply(this);
         }
         outAEmptyBlockBlock(node);
+    }
+
+    public void inAType1Field(AType1Field node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAType1Field(AType1Field node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAType1Field(AType1Field node)
+    {
+        inAType1Field(node);
+        if(node.getType() != null)
+        {
+            node.getType().apply(this);
+        }
+        if(node.getOne() != null)
+        {
+            node.getOne().apply(this);
+        }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
+        outAType1Field(node);
+    }
+
+    public void inAType2Field(AType2Field node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAType2Field(AType2Field node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAType2Field(AType2Field node)
+    {
+        inAType2Field(node);
+        if(node.getType() != null)
+        {
+            node.getType().apply(this);
+        }
+        if(node.getTwo() != null)
+        {
+            node.getTwo().apply(this);
+        }
+        if(node.getAssign() != null)
+        {
+            node.getAssign().apply(this);
+        }
+        if(node.getExpr() != null)
+        {
+            node.getExpr().apply(this);
+        }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
+        outAType2Field(node);
+    }
+
+    public void inAType3Field(AType3Field node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAType3Field(AType3Field node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAType3Field(AType3Field node)
+    {
+        inAType3Field(node);
+        if(node.getType() != null)
+        {
+            node.getType().apply(this);
+        }
+        if(node.getThree() != null)
+        {
+            node.getThree().apply(this);
+        }
+        if(node.getLeftSbrace() != null)
+        {
+            node.getLeftSbrace().apply(this);
+        }
+        if(node.getIntegerLiteral() != null)
+        {
+            node.getIntegerLiteral().apply(this);
+        }
+        if(node.getRightSbrace() != null)
+        {
+            node.getRightSbrace().apply(this);
+        }
+        if(node.getSemicolon() != null)
+        {
+            node.getSemicolon().apply(this);
+        }
+        outAType3Field(node);
+    }
+
+    public void inAIntType(AIntType node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAIntType(AIntType node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAIntType(AIntType node)
+    {
+        inAIntType(node);
+        if(node.getInt() != null)
+        {
+            node.getInt().apply(this);
+        }
+        outAIntType(node);
+    }
+
+    public void inACharType(ACharType node)
+    {
+        defaultIn(node);
+    }
+
+    public void outACharType(ACharType node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseACharType(ACharType node)
+    {
+        inACharType(node);
+        if(node.getChar() != null)
+        {
+            node.getChar().apply(this);
+        }
+        outACharType(node);
+    }
+
+    public void inABoolType(ABoolType node)
+    {
+        defaultIn(node);
+    }
+
+    public void outABoolType(ABoolType node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseABoolType(ABoolType node)
+    {
+        inABoolType(node);
+        if(node.getBool() != null)
+        {
+            node.getBool().apply(this);
+        }
+        outABoolType(node);
+    }
+
+    public void inAStringType(AStringType node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAStringType(AStringType node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAStringType(AStringType node)
+    {
+        inAStringType(node);
+        if(node.getString() != null)
+        {
+            node.getString().apply(this);
+        }
+        outAStringType(node);
+    }
+
+    public void inAFloatType(AFloatType node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAFloatType(AFloatType node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAFloatType(AFloatType node)
+    {
+        inAFloatType(node);
+        if(node.getFloat() != null)
+        {
+            node.getFloat().apply(this);
+        }
+        outAFloatType(node);
     }
 
     public void inAManyStmtsStmts(AManyStmtsStmts node)

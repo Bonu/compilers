@@ -8,7 +8,6 @@ import cpparser.analysis.*;
 public final class ABoolType extends PType
 {
     private TBool _bool_;
-    private TSemicolon _semicolon_;
 
     public ABoolType()
     {
@@ -16,13 +15,10 @@ public final class ABoolType extends PType
     }
 
     public ABoolType(
-        @SuppressWarnings("hiding") TBool _bool_,
-        @SuppressWarnings("hiding") TSemicolon _semicolon_)
+        @SuppressWarnings("hiding") TBool _bool_)
     {
         // Constructor
         setBool(_bool_);
-
-        setSemicolon(_semicolon_);
 
     }
 
@@ -30,8 +26,7 @@ public final class ABoolType extends PType
     public Object clone()
     {
         return new ABoolType(
-            cloneNode(this._bool_),
-            cloneNode(this._semicolon_));
+            cloneNode(this._bool_));
     }
 
     @Override
@@ -65,37 +60,11 @@ public final class ABoolType extends PType
         this._bool_ = node;
     }
 
-    public TSemicolon getSemicolon()
-    {
-        return this._semicolon_;
-    }
-
-    public void setSemicolon(TSemicolon node)
-    {
-        if(this._semicolon_ != null)
-        {
-            this._semicolon_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._semicolon_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._bool_)
-            + toString(this._semicolon_);
+            + toString(this._bool_);
     }
 
     @Override
@@ -105,12 +74,6 @@ public final class ABoolType extends PType
         if(this._bool_ == child)
         {
             this._bool_ = null;
-            return;
-        }
-
-        if(this._semicolon_ == child)
-        {
-            this._semicolon_ = null;
             return;
         }
 
@@ -124,12 +87,6 @@ public final class ABoolType extends PType
         if(this._bool_ == oldChild)
         {
             setBool((TBool) newChild);
-            return;
-        }
-
-        if(this._semicolon_ == oldChild)
-        {
-            setSemicolon((TSemicolon) newChild);
             return;
         }
 
