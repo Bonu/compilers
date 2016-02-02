@@ -16,6 +16,11 @@ public class BlockEntry extends ScopeEntry {
      * symbol table declared in the superclass.  
      */
     public boolean addBinding(String name, Entry symTabEntry) {
+    	if(symTabEntry instanceof VariableEntry){
+    		super.addBinding(name, symTabEntry);
+    		return true;
+    	}
+    	return false;
     }
 
     /** 
@@ -27,7 +32,7 @@ public class BlockEntry extends ScopeEntry {
 	// For example, super.toString() should print all of the 
 	// bindings declared in this block, i.e., this 
 	// method should be written in one line (see GlobalScope).
-
+    	return super.toString();
     }
 }              // End of class BlockEntry            
 

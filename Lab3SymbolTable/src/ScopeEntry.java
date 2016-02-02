@@ -1,20 +1,23 @@
 
-import java.util.LinkedHashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 public abstract class ScopeEntry extends Entry {
 
     // The following data structure is needed to preserve the order 
     // that the bindings are recorded in this ScopeEntry.
-    private LinkedHashMap localSymtab = new LinkedHashMap(5);
+    private LinkedHashMap<String, Entry> localSymtab = new LinkedHashMap<String, Entry>(5);
 
     // The following field is needed for methods reset(), hasNext(), 
     // and next().
     private Iterator iterator;
 
     public ScopeEntry(String name) {
+    	super(name);
     }
     public ScopeEntry(String name, Type t) {
+    	super(name, t);
     }
 
     /**
@@ -37,6 +40,12 @@ public abstract class ScopeEntry extends Entry {
      * and so the bindings can be retrieved in the proper order!
      */
     public boolean addBinding(String name, Entry symTabEntry) {
+    	if(localSymtab.containsKey(name)){
+    		return false;
+    	}else {
+    		localSymtab.put(name, symTabEntry);
+    		return true;
+    	}
     }
 
     /**
@@ -44,6 +53,11 @@ public abstract class ScopeEntry extends Entry {
      * Return null if not found.
      */
     public Entry lookup(String name) {
+    	if(localSymtab.containsKey(name)){
+    		return localSymtab.get(name);
+    	}else {
+    		return null;
+    	}
     }
 
     // The purpose of the following iterator methods is to allow access to 
@@ -63,16 +77,25 @@ public abstract class ScopeEntry extends Entry {
      *  in the iteration.
      */
     public void reset() {
+    	Set entrySet = localSymtab.entrySet();
+    	iterator = entrySet.iterator();
+    	while(iterator.hasNext()){
+    		iterator.next();
+    	}
     }
 
     /** Returns the current element and advances the iteration.
      */
     public Entry next() {
+    	if(hasMore())
+    		return (Entry)iterator.next();
+    	return null;
     }
 
     /** Returns whether or not there are more elements to be iterated.
      */
     public boolean hasMore() {
+    	return iterator.hasNext();
     }
 
     /** Return a String representing all the entries in the local symbol table.
@@ -81,11 +104,16 @@ public abstract class ScopeEntry extends Entry {
      *  int i;
      *  int m(int x, int y);
      */
-    public String toString() {
-	// Use the iterator methods, reset(), next(), and hasMore() 
-	// to get the entries; then for each entry call toString().
-	// Add a semicolon after each VariableEntry.  
-
-    }
+	public String toString() {
+		// Use the iterator methods, reset(), next(), and hasMore()
+		// to get the entries; then for each entry call toString().
+		// Add a semicolon after each VariableEntry.
+		String output = "";
+		reset(); // reset to start of the List
+		while (hasMore()) {
+			output += next().toString() + ":";
+		}
+		return output;
+	}
 }              // End of class ScopeEntry            
 
