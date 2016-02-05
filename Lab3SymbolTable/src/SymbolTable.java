@@ -10,10 +10,10 @@ public class SymbolTable {
      *  at the bottom of the stack.  In this case there is only one entry 
      *  on the scope stack.  
      */
-	Deque<Entry> scopeStack;
+	Deque<ScopeEntry> scopeStack;
 	
     public SymbolTable() {
-    	scopeStack = new LinkedList<Entry>();
+    	scopeStack = new LinkedList<ScopeEntry>();
     	scopeStack.addFirst(new GlobalEntry()); // set initial scope to Global
     }
 
@@ -25,7 +25,9 @@ public class SymbolTable {
      *  'symTabEntry'.  
      */
     public boolean insertBinding(Entry symTabEntry) {
-    	return scopeStack.offerFirst(symTabEntry);
+    	ScopeEntry top =  (ScopeEntry)scopeStack.peekFirst();
+    	top.addBinding(symTabEntry.name(), symTabEntry);
+    	return true;
     }
 
     /**  
@@ -47,10 +49,10 @@ public class SymbolTable {
      *  name denotes two different entities.  
      */
     public Entry lookup(String name) {
-    	Iterator<Entry> itr = scopeStack.iterator();
-    	Entry entry;
+    	Iterator<ScopeEntry> itr = scopeStack.iterator();
+    	ScopeEntry entry;
     	while(itr.hasNext()){
-    		entry = (Entry)itr.next();
+    		entry = (ScopeEntry)itr.next();
     		if(entry.name().equals(name)){
     			return entry;
     		}

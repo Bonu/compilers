@@ -25,7 +25,7 @@ public class ClassEntry extends ScopeEntry {
      * Return a String representation of the class.
      */
     public String toString() {
-    	return this.toString();
+    	return "class " + name() + "{\n" + super.toString() + "\n}\n";
     }
 }              // End of class ClassEntry            
 

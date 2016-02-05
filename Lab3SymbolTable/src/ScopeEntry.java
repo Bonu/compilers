@@ -11,7 +11,7 @@ public abstract class ScopeEntry extends Entry {
 
     // The following field is needed for methods reset(), hasNext(), 
     // and next().
-    private Iterator iterator;
+    private Iterator<Entry> iterator;
 
     public ScopeEntry(String name) {
     	super(name);
@@ -77,19 +77,20 @@ public abstract class ScopeEntry extends Entry {
      *  in the iteration.
      */
     public void reset() {
-    	Set entrySet = localSymtab.entrySet();
+    	Set entrySet = localSymtab.keySet();
     	iterator = entrySet.iterator();
-    	while(iterator.hasNext()){
-    		iterator.next();
-    	}
+//    	while(iterator.hasNext()){
+//    		iterator.next();
+//    	}
     }
 
     /** Returns the current element and advances the iteration.
      */
     public Entry next() {
-    	if(hasMore())
-    		return (Entry)iterator.next();
-    	return null;
+//    	if(hasMore())
+//    		return (Entry)iterator.next();
+//    	return null;
+    	return localSymtab.get(iterator.next());
     }
 
     /** Returns whether or not there are more elements to be iterated.
@@ -111,7 +112,7 @@ public abstract class ScopeEntry extends Entry {
 		String output = "";
 		reset(); // reset to start of the List
 		while (hasMore()) {
-			output += next().toString() + ":";
+			output += next().toString();
 		}
 		return output;
 	}
