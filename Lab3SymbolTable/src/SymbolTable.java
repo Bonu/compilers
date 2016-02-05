@@ -14,7 +14,7 @@ public class SymbolTable {
 	
     public SymbolTable() {
     	scopeStack = new LinkedList<Entry>();
-    	scopeStack.addFirst(new GlobalEntry());
+    	scopeStack.addFirst(new GlobalEntry()); // set initial scope to Global
     }
 
     /**  
@@ -25,7 +25,7 @@ public class SymbolTable {
      *  'symTabEntry'.  
      */
     public boolean insertBinding(Entry symTabEntry) {
-    	return scopeStack.add(symTabEntry);
+    	return scopeStack.offerFirst(symTabEntry);
     }
 
     /**  
@@ -33,7 +33,7 @@ public class SymbolTable {
      *  i.e., call toString() on the top entry.
      */
     public String currentScope() {
-    	return scopeStack.peek().toString();
+    	return scopeStack.peekFirst().toString();
     }
 
     /**  
@@ -47,11 +47,13 @@ public class SymbolTable {
      *  name denotes two different entities.  
      */
     public Entry lookup(String name) {
+    	Iterator<Entry> itr = scopeStack.iterator();
     	Entry entry;
-    	while(scopeStack.peek() != null){
-    		entry = scopeStack.pop();
-    		if(entry.name().equals(name))
+    	while(itr.hasNext()){
+    		entry = (Entry)itr.next();
+    		if(entry.name().equals(name)){
     			return entry;
+    		}
     	}
     	return null;
     }
@@ -67,9 +69,9 @@ public class SymbolTable {
      *  Return null if 'name1.name2' is not found.
      */
     public Entry lookup(String name1, String name2) {
-    	Entry entry1=lookup(name1);
-    	if(entry1 instanceof ClassEntry)
-    		return ((ClassEntry) entry1).lookup(name2);
+    	Entry entry=lookup(name1);
+    	if(entry instanceof ClassEntry)
+    		return ((ClassEntry) entry).lookup(name2);
     	return null;
     }
 
@@ -91,7 +93,7 @@ public class SymbolTable {
      *  Return true if the operation is successful, otherwise return false.
      */
     public boolean enterScope(ScopeEntry scopeEntry) {
-    	return scopeStack.add(scopeEntry);
+    	return scopeStack.offerFirst(scopeEntry);
     }
 
     /**  
@@ -108,7 +110,7 @@ public class SymbolTable {
     	Entry scopeEntry;
     	while(scopeStack.peekFirst() != null){
     		scopeEntry = scopeStack.pop();
-    		if((ScopeEntry)scopeEntry instanceof ScopeEntry)
+    		if(scopeEntry instanceof ScopeEntry)
     			return (ScopeEntry)scopeEntry;
     	}
     	return null;
@@ -139,7 +141,7 @@ public class SymbolTable {
     public String toString() {
     	StringBuilder strBuilder = new StringBuilder();
     	while(scopeStack.size()>0)
-    		strBuilder.append(scopeStack.pop().toString()+"\n");
+    		strBuilder.append(scopeStack.removeLast().toString()+"\n");
     	return strBuilder.toString();
     }
 }              // End of class SymbolTable            
