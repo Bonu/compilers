@@ -6,6 +6,7 @@ public class BlockEntry extends ScopeEntry {
 
 	public BlockEntry() {
 		super(new String("##Block" + blockCount + "##"));
+		System.out.println("---Block Entry");
 		blockCount++; // ensures that there are no name conflicts among blocks
 	}
 

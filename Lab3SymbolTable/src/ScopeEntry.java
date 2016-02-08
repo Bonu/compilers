@@ -7,17 +7,19 @@ public abstract class ScopeEntry extends Entry {
 
     // The following data structure is needed to preserve the order 
     // that the bindings are recorded in this ScopeEntry.
-    private LinkedHashMap<String, Entry> localSymtab = new LinkedHashMap<String, Entry>(5);
+    private LinkedHashMap<String, Entry> localSymtab = new LinkedHashMap<String, Entry>(6);
 
     // The following field is needed for methods reset(), hasNext(), 
     // and next().
-    private Iterator<Entry> iterator;
+    private Iterator<ScopeEntry> iterator;
 
     public ScopeEntry(String name) {
     	super(name);
+//    	System.out.println("--- Scope Entry----"+name);
     }
     public ScopeEntry(String name, Type t) {
     	super(name, t);
+//    	System.out.println("--- Scope Entry----"+name+" type"+t.toString());
     }
 
     /**
@@ -79,6 +81,7 @@ public abstract class ScopeEntry extends Entry {
     public void reset() {
     	Set entrySet = localSymtab.keySet();
     	iterator = entrySet.iterator();
+//    	
 //    	while(iterator.hasNext()){
 //    		iterator.next();
 //    	}
@@ -90,7 +93,7 @@ public abstract class ScopeEntry extends Entry {
 //    	if(hasMore())
 //    		return (Entry)iterator.next();
 //    	return null;
-    	return localSymtab.get(iterator.next());
+    	return (Entry)localSymtab.get(iterator.next());
     }
 
     /** Returns whether or not there are more elements to be iterated.
@@ -112,7 +115,15 @@ public abstract class ScopeEntry extends Entry {
 		String output = "";
 		reset(); // reset to start of the List
 		while (hasMore()) {
-			output += next().toString();
+			Entry entry = (Entry)next();
+			if(entry instanceof VariableEntry){
+				output += entry +";\n";
+			}else {
+				output += entry +"\n";
+			}
+			
+			
+			
 		}
 		return output;
 	}

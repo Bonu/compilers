@@ -2,6 +2,7 @@
 public class ClassEntry extends ScopeEntry {
     public ClassEntry(String name) {
     	super(name);
+//    	System.out.println("---Class Entry---");
     }
 
     /** 

@@ -49,15 +49,16 @@ public class SymbolTable {
      *  name denotes two different entities.  
      */
     public Entry lookup(String name) {
-    	Iterator<ScopeEntry> itr = scopeStack.iterator();
+//    	System.out.println("----Inside lookup----"+ name);
     	ScopeEntry entry;
-    	while(itr.hasNext()){
-    		entry = (ScopeEntry)itr.next();
-    		if(entry.name().equals(name)){
-    			return entry;
-    		}
-    	}
+        Iterator<ScopeEntry> reverse = scopeStack.iterator();
+        while (reverse.hasNext()) {
+        	entry = (ScopeEntry)reverse.next();
+//        	System.out.println("Entry -->"+ entry.name());
+        	return entry.lookup(name);
+        }
     	return null;
+    	
     }
 
     /**  
@@ -82,7 +83,7 @@ public class SymbolTable {
      *  Return null if no such object is found in the scope stack.
      */
     public MethodEntry enclosingMethod() {
-    	Entry methodEntry = scopeStack.pop();
+    	Entry methodEntry = scopeStack.peek();
     	if(methodEntry instanceof MethodEntry && methodEntry!=null)
     		return (MethodEntry)methodEntry;
     	return null;
@@ -111,9 +112,16 @@ public class SymbolTable {
     public ScopeEntry leaveScope() {
     	Entry scopeEntry;
     	while(scopeStack.peekFirst() != null){
-    		scopeEntry = scopeStack.pop();
-    		if(scopeEntry instanceof ScopeEntry)
+    		scopeEntry = scopeStack.peek();
+    		if(scopeStack.size() == 1){
+    			return null;
+    		} else 
+    		if(scopeEntry instanceof ScopeEntry) {
+    			scopeStack.pop();
     			return (ScopeEntry)scopeEntry;
+	    	} else if(scopeEntry instanceof GlobalEntry) {
+	    		return null;
+	    	}
     	}
     	return null;
     }
@@ -141,9 +149,17 @@ public class SymbolTable {
      *  i.e., call toString() on the bottom entry of the stack.
      */
     public String toString() {
-    	StringBuilder strBuilder = new StringBuilder();
-    	while(scopeStack.size()>0)
-    		strBuilder.append(scopeStack.removeLast().toString()+"\n");
-    	return strBuilder.toString();
+    	
+    	Iterator<ScopeEntry> itr = scopeStack.iterator();
+    	
+    	ScopeEntry entry;
+    	String strBuilder = "";
+        Iterator reverse = scopeStack.iterator();
+        while (reverse.hasNext()) {
+        	entry = (ScopeEntry)reverse.next();
+        	strBuilder += scopeStack.getFirst()+"\n";
+        }
+    	
+    	return strBuilder;
     }
 }              // End of class SymbolTable            

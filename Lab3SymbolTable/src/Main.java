@@ -112,7 +112,7 @@ public class Main {
 	}
 	for (int i=0; i<args.length; i++) {
 	    try {
-	      //  System.out.println("Processing " + args[i]);
+	    System.out.println("Processing " + args[i]);
 		processFile(args[i]);
 	    }
 	    catch (java.io.IOException e) {

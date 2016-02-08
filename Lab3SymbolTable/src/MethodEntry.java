@@ -32,7 +32,7 @@ public class MethodEntry extends ScopeEntry {
 	// Note that the superclass method toString() cannot be used 
 	// here because the delimiters are different (comma here 
 	// versus semicolon in the superclass method).
-    	return super.toString();
+    	return  super.type().toString() + "  " + super.name();
 
     }
 }              // End of class MethodEntry            
