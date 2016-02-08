@@ -36,12 +36,17 @@ public class MethodEntry extends ScopeEntry {
 		reset(); // reset to start of the List
 		while (hasMore()) {
 			Entry entry = (Entry)next();
+			if (entry instanceof VariableEntry) {
 				output += entry ;
 				output += ", ";
+			}
 			
 		}
+		if(output.length() > 2){
+			output = output.substring(0,output.length()-2);
+		}
 		
-    	return  super.type().toString() + "  " + super.name() +"(" +  output.substring(0,output.length()-2) +" )";
+    	return  super.type().toString() + "  " + super.name() +"(" +  output +" )";
 
     }
 }              // End of class MethodEntry            
