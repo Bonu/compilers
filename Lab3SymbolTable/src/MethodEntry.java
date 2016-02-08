@@ -1,4 +1,4 @@
-
+import java.util.Set;
 
 public class MethodEntry extends ScopeEntry {
 
@@ -32,7 +32,16 @@ public class MethodEntry extends ScopeEntry {
 	// Note that the superclass method toString() cannot be used 
 	// here because the delimiters are different (comma here 
 	// versus semicolon in the superclass method).
-    	return  super.type().toString() + "  " + super.name();
+    	String output = "";
+		reset(); // reset to start of the List
+		while (hasMore()) {
+			Entry entry = (Entry)next();
+				output += entry ;
+				output += ", ";
+			
+		}
+		
+    	return  super.type().toString() + "  " + super.name() +"(" +  output.substring(0,output.length()-2) +" )";
 
     }
 }              // End of class MethodEntry            

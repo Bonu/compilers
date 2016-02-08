@@ -7,11 +7,11 @@ public abstract class ScopeEntry extends Entry {
 
     // The following data structure is needed to preserve the order 
     // that the bindings are recorded in this ScopeEntry.
-    private LinkedHashMap<String, Entry> localSymtab = new LinkedHashMap<String, Entry>(6);
+    protected LinkedHashMap<String, Entry> localSymtab = new LinkedHashMap<String, Entry>(6);
 
     // The following field is needed for methods reset(), hasNext(), 
     // and next().
-    private Iterator<ScopeEntry> iterator;
+    protected Iterator<ScopeEntry> iterator;
 
     public ScopeEntry(String name) {
     	super(name);
