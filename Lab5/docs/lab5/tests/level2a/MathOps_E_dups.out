@@ -1,0 +1,15 @@
+line 12: Redeclaration of identifier `main'
+line 12: Redeclaration of identifier `x'
+line 14: Redeclaration of identifier `q'
+line 15: Redeclaration of identifier `i'
+line 16: Redeclaration of identifier `p'
+line 5: `p' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` 0 ' which has type `int'
+line 6: unable to resolve name -- a
+line 7: `q' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` "" ' which has type `string'
+line 14: `q' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` "" ' which has type `string'
+line 16: `p' and its initializing expression have incompatible types
+          -- requires type `int' but found ` false ' which has type `bool'
+10 errors were detected

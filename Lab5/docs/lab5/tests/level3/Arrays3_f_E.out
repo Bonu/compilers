@@ -1,0 +1,22 @@
+line 11: invalid array index -- requires int or char type 
+           but found ` 2.0 ' which has type float
+line 12: invalid array index -- requires int or char type 
+           but found ` fa1 [ 2 ] ' which has type float
+line 13: unable to resolve name -- ia
+line 14: unable to resolve name -- ia
+line 14: invalid array index -- requires int or char type 
+           but found ` fa1 [ 10 ] ' which has type float
+line 15: invalid array index -- requires int or char type 
+           but found ` i + j * a ' which has type float
+line 17: invalid array index -- requires int or char type 
+           but found ` ia1 [ 2 ] * ( i * j + i % j * 2.1 ) ' which has type float
+line 18: unable to resolve name -- ia
+line 18: unable to resolve name -- fa
+line 19: invalid array index -- requires int or char type 
+           but found ` a ' which has type float
+line 22: invalid array index -- requires int or char type 
+           but found ` a ' which has type float
+line 22: invalid array index -- requires int or char type 
+           but found ` b ' which has type float
+line 23: ` Main.a ' is not an array variable
+13 errors were detected

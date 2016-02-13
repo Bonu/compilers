@@ -1,0 +1,17 @@
+line 12: `k' and its initializing expression have incompatible types
+          -- requires type `char' but found ` i * j ' which has type `int'
+line 13: `l' and its initializing expression have incompatible types
+          -- requires type `char' but found ` k / '5' ' which has type `int'
+line 14: `m' and its initializing expression have incompatible types
+          -- requires type `char' but found ` j + i ' which has type `int'
+line 15: `n' and its initializing expression have incompatible types
+          -- requires type `char' but found ` '1' - j ' which has type `int'
+line 19: `b' and its initializing expression have incompatible types
+          -- requires type `char' but found ` - 'j' ' which has type `int'
+line 22: `c' and its initializing expression have incompatible types
+          -- requires type `char' but found ` k + '1' + '0' - '5' * k / ( j / '2' ) ' which has type `int'
+line 23: `d' and its initializing expression have incompatible types
+          -- requires type `char' but found ` i * '4' / '6' + '3' * k - '1' ' which has type `int'
+line 24: `e' and its initializing expression have incompatible types
+          -- requires type `char' but found ` ( i + - j * '3' ) / ( k - + j ) ' which has type `int'
+8 errors were detected

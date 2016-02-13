@@ -1,0 +1,47 @@
+line 10: cannot return a value from methods with a void result type
+line 14: cannot return a value from methods with a void result type
+line 18: cannot return a value from methods with a void result type
+line 22: cannot return a value from methods with a void result type
+line 26: cannot return a value from methods with a void result type
+line 30: unable to resolve name -- a
+line 30: cannot return a value from methods with a void result type
+line 34: a return expression is required in methods with a return type
+line 42: the return value does not match the return type of method 'char_int'
+          -- expects type `char' but found an expression with type `int'
+line 46: the return value does not match the return type of method 'char_bool'
+          -- expects type `char' but found an expression with type `bool'
+line 50: the return value does not match the return type of method 'char_string'
+          -- expects type `char' but found an expression with type `string'
+line 54: the return value does not match the return type of method 'char_bool2'
+          -- expects type `char' but found an expression with type `bool'
+line 58: unable to resolve name -- a
+line 62: a return expression is required in methods with a return type
+line 74: the return value does not match the return type of method 'int_bool'
+          -- expects type `int' but found an expression with type `bool'
+line 78: the return value does not match the return type of method 'int_string'
+          -- expects type `int' but found an expression with type `string'
+line 82: the return value does not match the return type of method 'int_bool2'
+          -- expects type `int' but found an expression with type `bool'
+line 86: unable to resolve name -- a
+line 90: a return expression is required in methods with a return type
+line 94: the return value does not match the return type of method 'bool_char'
+          -- expects type `bool' but found an expression with type `char'
+line 98: the return value does not match the return type of method 'bool_int'
+          -- expects type `bool' but found an expression with type `int'
+line 106: the return value does not match the return type of method 'bool_string'
+          -- expects type `bool' but found an expression with type `string'
+line 110: unable to resolve name -- a
+line 118: the return value does not match the return type of method 'k1'
+          -- expects type `int' but found an expression with type `float'
+line 127: the return value does not match the return type of method 'k2'
+          -- expects type `int' but found an expression with type `float'
+line 131: invalid argument 2 ` sa [ z ] ' for arithmetic operator `+'
+          -- expects a numeric argument but found string
+line 135: the return value does not match the return type of method 'k4'
+          -- expects type `int' but found an expression with type `string'
+line 139: the return value does not match the return type of method 'k5'
+          -- expects type `char' but found an expression with type `float'
+line 143: the return value does not match the return type of method 'k6'
+          -- expects type `char' but found an expression with type `string'
+line 0: Method `Main.main' has not been defined
+30 errors were detected

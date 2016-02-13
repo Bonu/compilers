@@ -1,0 +1,31 @@
+line 7: `i' and its initializing expression have incompatible types
+          -- requires type `int' but found ` 2.0 ' which has type `float'
+line 8: `a' and its initializing expression have incompatible types
+          -- requires type `float' but found ` p ' which has type `bool'
+line 9: `q' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` 1 ' which has type `int'
+line 10: `j' and its initializing expression have incompatible types
+          -- requires type `int' but found ` a ' which has type `float'
+line 11: `b' and its initializing expression have incompatible types
+          -- requires type `float' but found ` p ' which has type `bool'
+line 12: `p' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` 0 ' which has type `int'
+line 17: `k' and its initializing expression have incompatible types
+          -- requires type `int' but found ` a * j ' which has type `float'
+line 18: `l' and its initializing expression have incompatible types
+          -- requires type `int' but found ` j + a ' which has type `float'
+line 19: `m' and its initializing expression have incompatible types
+          -- requires type `int' but found ` j - 5.0 ' which has type `float'
+line 21: invalid argument 2 ` p ' for arithmetic operator `*'
+          -- expects a numeric argument but found bool
+line 22: invalid argument 1 ` p ' for arithmetic operator `/'
+          -- expects a numeric argument but found bool
+line 24: `r' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` i ' which has type `int'
+line 25: `s' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` b ' which has type `float'
+line 27: `c' and its initializing expression have incompatible types
+          -- requires type `float' but found ` p ' which has type `bool'
+line 30: invalid argument type for unary operator `-'
+          -- expects a numeric argument but found bool
+15 errors were detected

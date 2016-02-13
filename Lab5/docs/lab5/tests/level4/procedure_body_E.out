@@ -1,0 +1,14 @@
+line 15: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `int'
+line 16: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `string'
+line 17: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `string'
+line 18: unable to resolve name -- n
+line 19: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `char'
+line 20: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `int'
+line 21: the target ` i ' and source have incompatible types
+          -- expects `int' but found `string'
+7 errors were detected

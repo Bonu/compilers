@@ -1,0 +1,44 @@
+line 5: `i' and its initializing expression have incompatible types
+          -- requires type `char' but found ` "abc" ' which has type `string'
+line 6: `j' and its initializing expression have incompatible types
+          -- requires type `char' but found ` true ' which has type `bool'
+line 7: `k' and its initializing expression have incompatible types
+          -- requires type `char' but found ` false ' which has type `bool'
+line 8: `l' and its initializing expression have incompatible types
+          -- requires type `char' but found ` 1 ' which has type `int'
+line 9: `m' and its initializing expression have incompatible types
+          -- requires type `char' but found ` 1.5 ' which has type `float'
+line 10: `a' and its initializing expression have incompatible types
+          -- requires type `float' but found ` "455" ' which has type `string'
+line 11: `b' and its initializing expression have incompatible types
+          -- requires type `float' but found ` false ' which has type `bool'
+line 12: `c' and its initializing expression have incompatible types
+          -- requires type `float' but found ` true ' which has type `bool'
+line 13: `d' and its initializing expression have incompatible types
+          -- requires type `int' but found ` 1.5E2 ' which has type `float'
+line 14: `e' and its initializing expression have incompatible types
+          -- requires type `int' but found ` "abc" ' which has type `string'
+line 15: `f' and its initializing expression have incompatible types
+          -- requires type `int' but found ` true ' which has type `bool'
+line 16: `g' and its initializing expression have incompatible types
+          -- requires type `int' but found ` false ' which has type `bool'
+line 17: `p' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` "abc" ' which has type `string'
+line 18: `q' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` 1 ' which has type `int'
+line 19: `r' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` '2' ' which has type `char'
+line 20: `s' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` 1.5E-1 ' which has type `float'
+line 21: `str1' and its initializing expression have incompatible types
+          -- requires type `string' but found ` 1 ' which has type `int'
+line 22: `str2' and its initializing expression have incompatible types
+          -- requires type `string' but found ` '2' ' which has type `char'
+line 23: `str3' and its initializing expression have incompatible types
+          -- requires type `string' but found ` true ' which has type `bool'
+line 24: `str4' and its initializing expression have incompatible types
+          -- requires type `string' but found ` false ' which has type `bool'
+line 25: `str5' and its initializing expression have incompatible types
+          -- requires type `string' but found ` 1.5E+2 ' which has type `float'
+line 0: Method `Main.main' has not been defined
+22 errors were detected

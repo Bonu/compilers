@@ -1,0 +1,31 @@
+line 10: cannot return a value from methods with a void result type
+line 14: cannot return a value from methods with a void result type
+line 18: cannot return a value from methods with a void result type
+line 22: cannot return a value from methods with a void result type
+line 26: unable to resolve name -- a
+line 26: cannot return a value from methods with a void result type
+line 32: a return expression is required in methods with a return type
+line 40: the return value does not match the return type of method 'int_float'
+          -- expects type `int' but found an expression with type `float'
+line 44: the return value does not match the return type of method 'int_bool'
+          -- expects type `int' but found an expression with type `bool'
+line 48: the return value does not match the return type of method 'int_string'
+          -- expects type `int' but found an expression with type `string'
+line 52: the return value does not match the return type of method 'int_bool2'
+          -- expects type `int' but found an expression with type `bool'
+line 58: a return expression is required in methods with a return type
+line 70: the return value does not match the return type of method 'float_bool'
+          -- expects type `float' but found an expression with type `bool'
+line 74: the return value does not match the return type of method 'float_string'
+          -- expects type `float' but found an expression with type `string'
+line 78: the return value does not match the return type of method 'float_bool2'
+          -- expects type `float' but found an expression with type `bool'
+line 84: a return expression is required in methods with a return type
+line 88: the return value does not match the return type of method 'bool_int'
+          -- expects type `bool' but found an expression with type `int'
+line 92: the return value does not match the return type of method 'bool_float'
+          -- expects type `bool' but found an expression with type `float'
+line 100: the return value does not match the return type of method 'bool_string'
+          -- expects type `bool' but found an expression with type `string'
+line 0: Method `Main.main' has not been defined
+20 errors were detected

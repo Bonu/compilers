@@ -1,0 +1,13 @@
+line 26: operands to relational operator `<' have incompatible types
+line 27: operands to relational operator `>' have incompatible types
+line 28: operands to relational operator `>=' have incompatible types
+line 29: operands to relational operator `<=' have incompatible types
+line 30: operands to relational operator `==' have incompatible types
+line 31: operands to relational operator `!=' have incompatible types
+line 33: operands to relational operator `<' have incompatible types
+line 34: operands to relational operator `>' have incompatible types
+line 35: operands to relational operator `>=' have incompatible types
+line 36: operands to relational operator `<=' have incompatible types
+line 37: operands to relational operator `==' have incompatible types
+line 38: operands to relational operator `!=' have incompatible types
+12 errors were detected

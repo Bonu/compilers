@@ -1,0 +1,26 @@
+line 12: the target ` i ' and source have incompatible types
+          -- expects `int' but found `bool'
+line 13: a conditional expression must be a boolean type
+line 14: the target ` A [ i ] ' and source have incompatible types
+          -- expects `int' but found `float'
+line 19: invalid argument 2 to operator `&&'
+          -- expects a boolean argument but found int
+line 20: the target ` A [ i ] ' and source have incompatible types
+          -- expects `int' but found `float'
+line 23: the target ` f ' and source have incompatible types
+          -- expects `bool' but found `int'
+line 24: unable to resolve name -- a
+line 24: unable to resolve name -- a
+line 27: invalid array index -- requires int or char type 
+           but found ` j * .2 ' which has type float
+line 28: the target ` i ' and source have incompatible types
+          -- expects `int' but found `float'
+line 30: invalid argument 2 to operator `&&'
+          -- expects a boolean argument but found float
+line 31: invalid argument 2 ` p ' for arithmetic operator `%'
+          -- expects a numeric argument but found bool
+line 36: the target ` i ' and source have incompatible types
+          -- expects `int' but found `bool'
+line 42: ` x ' is not an array variable
+line 43: unable to resolve name -- z
+15 errors were detected
