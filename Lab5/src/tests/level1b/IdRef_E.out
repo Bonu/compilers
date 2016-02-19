@@ -1,0 +1,38 @@
+line 12: `s3' and its initializing expression have incompatible types
+          -- requires type `string' but found ` c1 ' which has type `char'
+line 13: `s4' and its initializing expression have incompatible types
+          -- requires type `string' but found ` i1 ' which has type `int'
+line 14: `s5' and its initializing expression have incompatible types
+          -- requires type `string' but found ` f1 ' which has type `float'
+line 15: unable to resolve name -- s
+line 16: `s7' and its initializing expression have incompatible types
+          -- requires type `string' but found ` b1 ' which has type `bool'
+line 19: `c2' and its initializing expression have incompatible types
+          -- requires type `char' but found ` s1 ' which has type `string'
+line 21: `c4' and its initializing expression have incompatible types
+          -- requires type `char' but found ` i1 ' which has type `int'
+line 22: `c5' and its initializing expression have incompatible types
+          -- requires type `char' but found ` f1 ' which has type `float'
+line 23: unable to resolve name -- c
+line 24: `c7' and its initializing expression have incompatible types
+          -- requires type `char' but found ` b1 ' which has type `bool'
+line 27: `i2' and its initializing expression have incompatible types
+          -- requires type `int' but found ` s1 ' which has type `string'
+line 30: `i5' and its initializing expression have incompatible types
+          -- requires type `int' but found ` f1 ' which has type `float'
+line 31: unable to resolve name -- i
+line 32: `i7' and its initializing expression have incompatible types
+          -- requires type `int' but found ` b1 ' which has type `bool'
+line 35: `f2' and its initializing expression have incompatible types
+          -- requires type `float' but found ` s4 ' which has type `string'
+line 39: unable to resolve name -- f
+line 40: `f7' and its initializing expression have incompatible types
+          -- requires type `float' but found ` b1 ' which has type `bool'
+line 43: `b2' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` s4 ' which has type `string'
+line 44: `b3' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` c5 ' which has type `char'
+line 45: `b4' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` i3 ' which has type `int'
+line 47: unable to resolve name -- b
+21 errors were detected

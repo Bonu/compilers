@@ -1,0 +1,46 @@
+line 15: argument 1 in call of method `m1' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 16: argument 1 in call of method `m1' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 17: argument 1 in call of method `m2' has an invalid type 
+          -- expects type `int' but found an expression with type `bool'
+line 17: wrong number of arguments in call of method `m2'
+line 19: wrong number of arguments in call of method `m2'
+line 21: argument 1 in call of method `m3' has an invalid type 
+          -- expects type `int' but found an expression with type `bool'
+line 22: argument 1 in call of method `m3' has an invalid type 
+          -- expects type `int' but found an expression with type `string'
+line 23: argument 1 in call of method `m4' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 24: argument 1 in call of method `m4' has an invalid type 
+          -- expects type `char' but found an expression with type `bool'
+line 24: argument 2 in call of method `m4' has an invalid type 
+          -- expects type `bool' but found an expression with type `char'
+line 25: argument 1 in call of method `m4' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 25: argument 2 in call of method `m4' has an invalid type 
+          -- expects type `bool' but found an expression with type `int'
+line 25: wrong number of arguments in call of method `m4'
+line 26: argument 3 in call of method `m5' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 27: argument 1 in call of method `m5' has an invalid type 
+          -- expects type `bool' but found an expression with type `string'
+line 27: argument 3 in call of method `m5' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 28: argument 1 in call of method `m6' has an invalid type 
+          -- expects type `bool' but found an expression with type `int'
+line 28: argument 3 in call of method `m6' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 29: argument 1 in call of method `m6' has an invalid type 
+          -- expects type `bool' but found an expression with type `int'
+line 29: argument 3 in call of method `m6' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 29: wrong number of arguments in call of method `m6'
+line 30: argument 1 in call of method `m6' has an invalid type 
+          -- expects type `bool' but found an expression with type `char'
+line 30: argument 2 in call of method `m6' has an invalid type 
+          -- expects type `bool' but found an expression with type `int'
+line 30: argument 3 in call of method `m6' has an invalid type 
+          -- expects type `char' but found an expression with type `int'
+line 30: wrong number of arguments in call of method `m6'
+25 errors were detected

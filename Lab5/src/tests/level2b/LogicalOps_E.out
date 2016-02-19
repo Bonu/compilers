@@ -1,0 +1,13 @@
+line 11: invalid argument 1 to operator `&&'
+          -- expects a boolean argument but found float
+line 12: invalid argument 2 to operator `&&'
+          -- expects a boolean argument but found int
+line 14: unary operator `!' expects a boolean argument but found int
+line 15: unary operator `!' expects a boolean argument but found float
+line 17: invalid argument 2 to operator `||'
+          -- expects a boolean argument but found float
+line 18: invalid argument 1 to operator `||'
+          -- expects a boolean argument but found int
+line 18: invalid argument 2 to operator `||'
+          -- expects a boolean argument but found float
+7 errors were detected

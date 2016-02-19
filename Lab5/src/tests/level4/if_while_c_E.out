@@ -1,0 +1,22 @@
+line 12: the target ` i ' and source have incompatible types
+          -- expects `char' but found `bool'
+line 13: a conditional expression must be a boolean type
+line 14: the target ` A [ i ] ' and source have incompatible types
+          -- expects `char' but found `int'
+line 18: the target ` j ' and source have incompatible types
+          -- expects `char' but found `int'
+line 19: invalid argument 2 to operator `&&'
+          -- expects a boolean argument but found char
+line 20: the target ` A [ i ] ' and source have incompatible types
+          -- expects `char' but found `int'
+line 21: the target ` j ' and source have incompatible types
+          -- expects `char' but found `int'
+line 24: unable to resolve name -- a
+line 24: unable to resolve name -- a
+line 28: the target ` i ' and source have incompatible types
+          -- expects `char' but found `int'
+line 31: invalid argument 2 ` p ' for arithmetic operator `%'
+          -- expects a numeric argument but found bool
+line 36: the target ` i ' and source have incompatible types
+          -- expects `char' but found `bool'
+12 errors were detected

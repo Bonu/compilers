@@ -1,0 +1,40 @@
+line 7: `s3' and its initializing expression have incompatible types
+          -- requires type `string' but found ` OtherClass . c1 ' which has type `char'
+line 8: `s4' and its initializing expression have incompatible types
+          -- requires type `string' but found ` OtherClass . i1 ' which has type `int'
+line 9: `s5' and its initializing expression have incompatible types
+          -- requires type `string' but found ` OtherClass . f1 ' which has type `float'
+line 10: unable to resolve name -- OtherClass.s
+line 11: `s7' and its initializing expression have incompatible types
+          -- requires type `string' but found ` OtherClass . b1 ' which has type `bool'
+line 14: `c2' and its initializing expression have incompatible types
+          -- requires type `char' but found ` OtherClass . s1 ' which has type `string'
+line 16: `c4' and its initializing expression have incompatible types
+          -- requires type `char' but found ` OtherClass . i1 ' which has type `int'
+line 17: `c5' and its initializing expression have incompatible types
+          -- requires type `char' but found ` OtherClass . f1 ' which has type `float'
+line 18: unable to resolve name -- OtherClass.c
+line 19: `c7' and its initializing expression have incompatible types
+          -- requires type `char' but found ` OtherClass . b1 ' which has type `bool'
+line 22: `i2' and its initializing expression have incompatible types
+          -- requires type `int' but found ` OtherClass . s1 ' which has type `string'
+line 25: `i5' and its initializing expression have incompatible types
+          -- requires type `int' but found ` OtherClass . f1 ' which has type `float'
+line 26: unable to resolve name -- OtherClass.i
+line 27: `i7' and its initializing expression have incompatible types
+          -- requires type `int' but found ` OtherClass . b1 ' which has type `bool'
+line 30: `f2' and its initializing expression have incompatible types
+          -- requires type `float' but found ` OtherClass . s1 ' which has type `string'
+line 34: unable to resolve name -- OtherClass.f
+line 35: `f7' and its initializing expression have incompatible types
+          -- requires type `float' but found ` OtherClass . b1 ' which has type `bool'
+line 38: `b2' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` OtherClass . s1 ' which has type `string'
+line 39: `b3' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` OtherClass . c1 ' which has type `char'
+line 40: `b4' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` OtherClass . i1 ' which has type `int'
+line 41: `b5' and its initializing expression have incompatible types
+          -- requires type `bool' but found ` OtherClass . f1 ' which has type `float'
+line 42: unable to resolve name -- OtherClass.f
+22 errors were detected

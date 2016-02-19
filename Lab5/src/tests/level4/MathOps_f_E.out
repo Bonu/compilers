@@ -1,0 +1,34 @@
+line 12: the target ` i ' and source have incompatible types
+          -- expects `int' but found `float'
+line 13: the target ` a ' and source have incompatible types
+          -- expects `string' but found `bool'
+line 14: the target ` q ' and source have incompatible types
+          -- expects `bool' but found `int'
+line 15: the target ` i ' and source have incompatible types
+          -- expects `int' but found `string'
+line 16: the target ` a ' and source have incompatible types
+          -- expects `string' but found `bool'
+line 17: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `int'
+line 22: invalid argument 1 ` a ' for arithmetic operator `*'
+          -- expects a numeric argument but found string
+line 23: invalid argument 2 ` a ' for arithmetic operator `+'
+          -- expects a numeric argument but found string
+line 24: the target ` i ' and source have incompatible types
+          -- expects `int' but found `float'
+line 26: invalid argument 2 ` p ' for arithmetic operator `*'
+          -- expects a numeric argument but found bool
+line 27: invalid argument 1 ` p ' for arithmetic operator `/'
+          -- expects a numeric argument but found bool
+line 29: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `int'
+line 30: the target ` p ' and source have incompatible types
+          -- expects `bool' but found `string'
+line 32: the target ` a ' and source have incompatible types
+          -- expects `string' but found `bool'
+line 35: invalid argument type for unary operator `-'
+          -- expects a numeric argument but found bool
+line 39: operands to relational operator `>' have incompatible types
+line 40: operands to relational operator `>' have incompatible types
+line 42: operands to relational operator `==' have incompatible types
+18 errors were detected

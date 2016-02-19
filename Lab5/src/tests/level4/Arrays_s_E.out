@@ -1,0 +1,20 @@
+line 16: invalid argument 2 ` fa1 [ z ] ' for arithmetic operator `+'
+          -- expects a numeric argument but found string
+line 20: invalid array index -- requires int or char type 
+           but found ` a ' which has type string
+line 21: invalid array index -- requires int or char type 
+           but found ` "2.0" ' which has type string
+line 22: unable to resolve name -- ia
+line 22: unable to resolve name -- fa
+line 23: unable to resolve name -- ia
+line 24: invalid argument 2 ` a ' for arithmetic operator `*'
+          -- expects a numeric argument but found string
+line 25: invalid array index -- requires int or char type 
+           but found ` fa1 [ 2 ] ' which has type string
+line 26: invalid array index -- requires int or char type 
+           but found ` a ' which has type string
+line 26: invalid array index -- requires int or char type 
+           but found ` b ' which has type string
+line 27: invalid argument 2 ` "2.1" ' for arithmetic operator `*'
+          -- expects a numeric argument but found string
+11 errors were detected

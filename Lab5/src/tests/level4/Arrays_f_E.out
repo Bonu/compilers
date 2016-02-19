@@ -1,0 +1,18 @@
+line 20: invalid array index -- requires int or char type 
+           but found ` a ' which has type float
+line 21: invalid array index -- requires int or char type 
+           but found ` 2.0 ' which has type float
+line 22: unable to resolve name -- ia
+line 22: unable to resolve name -- fa
+line 23: unable to resolve name -- ia
+line 24: invalid array index -- requires int or char type 
+           but found ` i + j * a ' which has type float
+line 25: invalid array index -- requires int or char type 
+           but found ` fa1 [ 2 ] ' which has type float
+line 26: invalid array index -- requires int or char type 
+           but found ` a ' which has type float
+line 26: invalid array index -- requires int or char type 
+           but found ` b ' which has type float
+line 27: invalid array index -- requires int or char type 
+           but found ` ia1 [ 2 ] * ( i * j + i % j * 2.1 ) ' which has type float
+10 errors were detected

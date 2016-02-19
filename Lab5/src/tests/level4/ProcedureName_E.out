@@ -1,0 +1,6 @@
+line 9: i2 is not a method in this context
+line 10: unable to resolve name -- f
+line 11: OtherClass.f is not a method in this context
+line 20: Main.i2 is not a method in this context
+line 21: unable to resolve name -- Main.f
+5 errors were detected
