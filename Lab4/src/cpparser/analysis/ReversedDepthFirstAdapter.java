@@ -32,8 +32,29 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     {
         inStart(node);
         node.getEOF().apply(this);
-        node.getPProgram().apply(this);
+        node.getPGoal().apply(this);
         outStart(node);
+    }
+
+    public void inAGoal(AGoal node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAGoal(AGoal node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAGoal(AGoal node)
+    {
+        inAGoal(node);
+        if(node.getProgram() != null)
+        {
+            node.getProgram().apply(this);
+        }
+        outAGoal(node);
     }
 
     public void inAClassDeclsProgram(AClassDeclsProgram node)

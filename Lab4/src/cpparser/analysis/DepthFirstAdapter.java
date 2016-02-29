@@ -31,9 +31,30 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseStart(Start node)
     {
         inStart(node);
-        node.getPProgram().apply(this);
+        node.getPGoal().apply(this);
         node.getEOF().apply(this);
         outStart(node);
+    }
+
+    public void inAGoal(AGoal node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAGoal(AGoal node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAGoal(AGoal node)
+    {
+        inAGoal(node);
+        if(node.getProgram() != null)
+        {
+            node.getProgram().apply(this);
+        }
+        outAGoal(node);
     }
 
     public void inAClassDeclsProgram(AClassDeclsProgram node)

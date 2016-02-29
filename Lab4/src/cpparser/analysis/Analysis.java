@@ -12,6 +12,7 @@ public interface Analysis extends Switch
     void setOut(Node node, Object o);
 
     void caseStart(Start node);
+    void caseAGoal(AGoal node);
     void caseAClassDeclsProgram(AClassDeclsProgram node);
     void caseAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node);
     void caseAClassDeclareSingleClassDecls(AClassDeclareSingleClassDecls node);
