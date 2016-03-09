@@ -1,7 +1,7 @@
 
-import java.util.*;
-import node.*;
-import analysis.*;
+import cpparser.analysis.DepthFirstAdapter;
+import cpparser.node.Node;
+import cpparser.node.Token;
 
 public class TypeChecker extends DepthFirstAdapter
 {
