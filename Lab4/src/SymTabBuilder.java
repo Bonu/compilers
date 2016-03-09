@@ -44,7 +44,12 @@ import cpparser.node.AMethodCallIdArgsMethodCall;
 import cpparser.node.AMethodCallIddoidArgsMethodCall;
 import cpparser.node.AMethodCallIddotidMethodCall;
 import cpparser.node.AMethodClassMember;
+import cpparser.node.AMethodNoArgumentsMethodDecl;
 import cpparser.node.ATClassClassHdr;
+import cpparser.node.ATypeIdentifierConstructorFormal;
+import cpparser.node.ATypeIdentifierFormal;
+import cpparser.node.ATypeIdentifierMethodHdr;
+import cpparser.node.AVoidIdentifierMethodHdr;
 import cpparser.node.AWhileSimpleStmt;
 
 public class SymTabBuilder extends DepthFirstAdapter
@@ -62,9 +67,25 @@ public class SymTabBuilder extends DepthFirstAdapter
 	@Override
 	public void outATClassClassHdr(ATClassClassHdr node) {
 		String class_name = node.getIdentifier().getText();
-		ClassEntry cls = new ClassEntry(class_name);
-		symtab.insertBinding(cls);
-//		symtab.enterScope(cls);
+		ClassEntry class_entry = new ClassEntry(class_name);
+
+		if (symtab.insertBinding(class_entry)) {
+			// success, so do nothing.		
+			symtab.enterScope(class_entry);
+    	} else if (symtab.lookup(class_name) != null) {
+    		System.out.println("Unsuccessful command "
+ 				   + node.getIdentifier().getLine()
+ 				   + ": " + node
+ 				   + " -- redeclaration of identifier "
+ 				   + class_name);
+    	}
+    	else {
+    		System.out.println("Unsuccessful command "
+    				   + node.getIdentifier().getLine()
+    				   + ": " + node
+    				   + " -- class declarations are not "
+    				   + "allowed in this scope");
+    	}
 	}
 
 	@Override
@@ -77,12 +98,15 @@ public class SymTabBuilder extends DepthFirstAdapter
 		// TODO Auto-generated method stub
 		super.outAClassDeclsProgram(node);
 	}
+	
 
 	@Override
 	public void outAClassDeclsMultipleClassDecls(AClassDeclsMultipleClassDecls node) {
 		// TODO Auto-generated method stub
 		super.outAClassDeclsMultipleClassDecls(node);
 	}
+	
+	
 
 	@Override
 	public void outAClassDeclareSingleClassDecls(AClassDeclareSingleClassDecls node) {
@@ -179,7 +203,80 @@ public class SymTabBuilder extends DepthFirstAdapter
 		// TODO Auto-generated method stub
 		super.outAManyStmtsStmts(node);
 	}
+	
+	@Override
+	public void outAType2Field(cpparser.node.AType2Field node) {
+		String field_name = node.getTwo().getText();
+    	Type type = (Type) getOut(node.getType());
+    	VariableEntry var_entry = new VariableEntry(field_name, type);
 
+    	if (symtab.insertBinding(var_entry)) {
+			// success, so do nothing.
+    	} else if (symtab.lookup(field_name) != null) {
+    		System.out.println("Unsuccessful command "
+ 				   + node.getTwo().getLine()
+ 				   + ": " + node
+ 				   + " -- redeclaration of identifier "
+ 				   + field_name);
+    	}
+    	else {
+    		System.out.println("Unsuccessful command "
+    				   + node.getTwo().getLine()
+    				   + ": " + node
+    				   + " -- class declarations are not "
+    				   + "allowed in this scope");
+    	}
+	}
+	
+	public void outAType3Field(cpparser.node.AType3Field node) {
+		String field_name = node.getThree().getText();
+    	Type type = (Type) getOut(node.getType());
+    	type = type.makeArrayType(Integer.valueOf( node.getIntegerLiteral().getText() ));
+    	VariableEntry var_entry = new VariableEntry(field_name, type);
+
+    	if (symtab.insertBinding(var_entry)) {
+			// success, so do nothing.
+    	} else if (symtab.lookup(field_name) != null) {
+    		System.out.println("Unsuccessful command "
+ 				   + node.getThree().getLine()
+ 				   + ": " + node
+ 				   + " -- redeclaration of identifier "
+ 				   + field_name);
+    	}
+    	else {
+    		System.out.println("Unsuccessful command "
+    				   + node.getThree().getLine()
+    				   + ": " + node
+    				   + " -- class declarations are not "
+    				   + "allowed in this scope");
+    	}
+	}
+
+	@Override
+	public void outAVoidIdentifierMethodHdr(AVoidIdentifierMethodHdr node) {
+		String method_name = node.getIdentifier().getText();
+    	Type type = Type.voidValue;
+    	MethodEntry method_entry = new MethodEntry(method_name, type);
+
+    	if (symtab.insertBinding(method_entry)) {
+			// success, so do nothing.
+    	} else if (symtab.lookup(method_name) != null) {
+    		System.out.println("Unsuccessful command "
+ 				   + node.getIdentifier().getLine()
+ 				   + ": " + node
+ 				   + " -- redeclaration of identifier "
+ 				   + method_name);
+    	}
+    	else {
+    		System.out.println("Unsuccessful command "
+    				   + node.getIdentifier().getLine()
+    				   + ": " + node
+    				   + " -- class declarations are not "
+    				   + "allowed in this scope");
+    	}
+    	symtab.enterScope(method_entry);
+	}
+	
 	@Override
 	public void outAIfElseStmtStmt(AIfElseStmtStmt node) {
 		// TODO Auto-generated method stub
@@ -198,6 +295,35 @@ public class SymTabBuilder extends DepthFirstAdapter
 		super.outAIdentifierLocalDecl(node);
 	}
 
+	@Override
+	public void outAMethodNoArgumentsMethodDecl(AMethodNoArgumentsMethodDecl node) {
+		symtab.leaveScope();
+	}
+	
+	@Override
+	public void outATypeIdentifierMethodHdr(ATypeIdentifierMethodHdr node) {
+		String method_name = node.getIdentifier().getText();
+    	Type type = (Type) getOut(node.getType());
+    	MethodEntry method_entry = new MethodEntry(method_name, type);
+
+    	if (symtab.insertBinding(method_entry)) {
+			// success, so do nothing.
+    	} else if (symtab.lookup(method_name) != null) {
+    		System.out.println("Unsuccessful command "
+ 				   + node.getIdentifier().getLine()
+ 				   + ": " + node
+ 				   + " -- redeclaration of identifier "
+ 				   + method_name);
+    	}
+    	else {
+    		System.out.println("Unsuccessful command "
+    				   + node.getIdentifier().getLine()
+    				   + ": " + node
+    				   + " -- class declarations are not "
+    				   + "allowed in this scope");
+    	}
+    	symtab.enterScope(method_entry);
+	}
 	@Override
 	public void outAIdentifierExprLocalDecl(AIdentifierExprLocalDecl node) {
 		// TODO Auto-generated method stub
@@ -220,6 +346,32 @@ public class SymTabBuilder extends DepthFirstAdapter
 	public void outABlockSimpleStmt(ABlockSimpleStmt node) {
 		// TODO Auto-generated method stub
 		super.outABlockSimpleStmt(node);
+	}
+	
+	@Override
+	public void outATypeIdentifierFormal(ATypeIdentifierFormal node) {
+		
+	    	String variable_name = node.getIdentifier().getText();
+	    	Type type = (Type) getOut(node.getType());
+	    	VariableEntry var_entry = new VariableEntry(variable_name, type);
+
+	    	if (symtab.insertBinding(var_entry)) {
+				// success, so do nothing.
+	    	} else if (symtab.lookup(variable_name) != null) {
+	    		System.out.println("Unsuccessful command "
+	 				   + node.getIdentifier().getLine()
+	 				   + ": " + node
+	 				   + " -- redeclaration of identifier "
+	 				   + variable_name);
+	    	}
+	    	else {
+	    		System.out.println("Unsuccessful command "
+	    				   + node.getIdentifier().getLine()
+	    				   + ": " + node
+	    				   + " -- class declarations are not "
+	    				   + "allowed in this scope");
+	    	}
+	    
 	}
 
 	@Override
@@ -337,7 +489,30 @@ public class SymTabBuilder extends DepthFirstAdapter
 	}
     
 	
-  
+	@Override
+	public void outATypeIdentifierConstructorFormal(ATypeIdentifierConstructorFormal node) {
+		String variable_name = node.getIdentifier().getText();
+    	Type type = (Type) getOut(node.getType());
+    	type = type.makeArrayType(0);
+    	VariableEntry var_entry = new VariableEntry(variable_name, type);
+    	
+    	if (symtab.insertBinding(var_entry)) {
+			// success, so do nothing.
+    	} else if (symtab.lookup(variable_name) != null) {
+    		System.out.println("Unsuccessful command "
+ 				   + node.getIdentifier().getLine()
+ 				   + ": " + node
+ 				   + " -- redeclaration of identifier "
+ 				   + variable_name);
+    	}
+    	else {
+    		System.out.println("Unsuccessful command "
+    				   + node.getIdentifier().getLine()
+    				   + ": " + node
+    				   + " -- class declarations are not "
+    				   + "allowed in this scope");
+    	}
+	}
 	
 	//  your evaluation rules (i.e., method overrides) go here.
 
